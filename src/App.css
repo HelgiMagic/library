@@ -5,6 +5,13 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --book-radius: 5px;
+  --dark-green: #1D3630;
 }
 
 #root {
@@ -16,6 +23,10 @@
   text-align: center;
 }
 
+body {
+  background-color: #f2f6f9;
+}
+
 .books-container {
   display: flex;
   flex-wrap: wrap;
@@ -24,4 +35,49 @@
 .book {
   display: flex;
   flex-direction: column;
+
+  width: 200px;
+
+  background-color: white;
+
+  border-radius: var(--book-radius);
+}
+
+.book-art {
+  display: block;
+}
+
+
+.book-title {
+  padding: 2px 0;
+  background-color: white; 
+  
+  border-radius: var(--book-radius) var(--book-radius) 0 0;
+  
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.book-status {
+  background-color: #ff9b9b;
+  padding: 5px 0;
+  border-radius: 0 0 var(--book-radius) var(--book-radius);
+}
+
+.available {
+  background-color: var(--dark-green);
+  color: white;
+}
+
+.unavailable {
+  background-color: #ff9b9b;
+  color: black;
+}
+
+.book-button {
+  border: 0;
+  border-radius: var(--book-radius);
+
+  background-color: var(--dark-green);
+  color: white;
 }
