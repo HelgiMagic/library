@@ -2,9 +2,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const book = {
-  title: 'Harry Potter',
+  title: 'Harry Potter and philosopher stone',
   picture: 'https://i.pinimg.com/originals/f3/10/4e/f3104ee11c298da850ded8c3df5220b8.jpg',
-  available: true,
+  available: false,
   id: 0,
 };
 

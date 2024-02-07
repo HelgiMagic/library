@@ -9,6 +9,11 @@
   padding: 0;
 }
 
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
 :root {
   --book-radius: 5px;
   --dark-green: #1D3630;
@@ -17,14 +22,68 @@
 #root {
   font-family: "Montserrat", Inter, system-ui;
 
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 body {
-  background-color: #f2f6f9;
+  background-color: #191919;
+}
+
+header {
+  padding: 50px 0;
+  background-color: #0d0d0d;
+
+  display: flex;
+  gap: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo {
+  width: 40px;
+  height: auto;
+}
+
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  padding: 50px 0;
+}
+
+.add-book {
+  width: 500px;
+  max-width: 70%;
+  padding: 16px;
+  
+  border: none;
+  border-radius: 8px;
+  
+  background: #6e807a;
+  color: #f2f2f2;
+
+  font-size: 14px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.add-book:hover {
+  background: #899c95;
+}
+
+.add-book img {
+  width: 16px;
+}
+
+h1 {
+  color: white;
 }
 
 .books-container {
@@ -35,33 +94,48 @@ body {
 .book {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 
-  width: 200px;
+  width: 250px;
+  padding: 20px;
 
-  background-color: white;
+  background-color: #262626;
 
   border-radius: var(--book-radius);
 }
 
 .book-art {
   display: block;
+
+  border-radius: var(--book-radius);
 }
 
 
 .book-title {
   padding: 2px 0;
-  background-color: white; 
+  color: white; 
   
   border-radius: var(--book-radius) var(--book-radius) 0 0;
   
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
+}
+
+
+.book-status, .book-button {
+  padding: 10px 0;
+  border-radius: 8px;
+  font-size: 15px;
 }
 
 .book-status {
   background-color: #ff9b9b;
-  padding: 5px 0;
-  border-radius: 0 0 var(--book-radius) var(--book-radius);
+}
+
+.book-button {
+  border: 0;
+  background-color: #322922;
+  color: white;
 }
 
 .available {
@@ -70,14 +144,6 @@ body {
 }
 
 .unavailable {
-  background-color: #ff9b9b;
+  /* background-color: #ff9b9b; */
   color: black;
-}
-
-.book-button {
-  border: 0;
-  border-radius: var(--book-radius);
-
-  background-color: var(--dark-green);
-  color: white;
 }
