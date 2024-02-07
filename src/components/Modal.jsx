@@ -28,6 +28,7 @@ export default function Modal() {
       title,
       pictureLink: picLink,
       available: true,
+      favorite: false,
     }));
 
     handleClose();

@@ -144,10 +144,37 @@ h1 {
   padding: 10px 0;
   border-radius: 8px;
   font-size: 15px;
+
+  width: 100%;
 }
 
 .book-status {
   background-color: #ff9b9b;
+}
+
+.book-row {
+  display: flex;
+  gap: 5px;
+
+  width: 100%;
+}
+
+
+.book-row img {
+  width: 20px;
+}
+
+.book-row button {
+  border-radius: var(--book-radius);
+  border: 0;
+
+  background-color: var(--gray-200);
+
+  width: 50px;
+}
+
+.favorite {
+  background-color: #ffdd2d !important;
 }
 
 .book-button {
