@@ -15,8 +15,16 @@ button {
 }
 
 :root {
-  --book-radius: 5px;
+  --book-radius: 10px;
   --dark-green: #1D3630;
+
+  --gray-700: #0d0d0d;
+  --gray-600: #1a1a1a;
+  --gray-500: #262626;
+  --gray-400: #333333;
+  --gray-300: #808080;
+  --gray-200: #d9d9d9;
+  --gray-100: #f2f2f2;
 }
 
 #root {
@@ -46,6 +54,7 @@ header {
 }
 
 .main {
+  width: 90%;
   max-width: 1280px;
   margin: 0 auto;
 
@@ -88,6 +97,8 @@ h1 {
 
 .books-container {
   display: flex;
+  gap: 50px;
+
   flex-wrap: wrap;
 }
 
@@ -108,6 +119,8 @@ h1 {
   display: block;
 
   border-radius: var(--book-radius);
+  object-fit: cover;
+  max-height: 315px;
 }
 
 
@@ -119,6 +132,11 @@ h1 {
   
   font-size: 18px;
   font-weight: normal;
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  min-height: 60px;
 }
 
 
@@ -146,4 +164,83 @@ h1 {
 .unavailable {
   /* background-color: #ff9b9b; */
   color: black;
+}
+
+.modal {
+  width: 95%;
+  max-width: 457px;
+  padding: 20px;
+
+  border-radius: 10px;
+  border: 1px solid var(--gray-500);
+
+  background: var(--gray-400);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  display: block;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.modal-input {
+  outline: none;
+
+  border-radius: 8px;
+  border: 1px solid var(--gray-700);
+  background-color: var(--gray-500);
+
+  color: var(--gray-300);
+  font-size: 14px;
+  font-weight: 400;
+
+  height: 38px;
+
+  padding-left: 16px;
+}
+
+.modal-input:focus {
+  border: 1px solid #5e60ce;  
+}
+
+.svgButton {
+  background-color: transparent;
+  border: none;
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.modalForm .add-book {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0;
 }

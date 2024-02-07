@@ -6,6 +6,7 @@ import {
   BrowserRouter, Routes, Route,
 } from 'react-router-dom';
 import MainPage from './pages/MainPage';
+import Modal from './components/Modal';
 import store from './slices/index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +18,7 @@ root.render(
         <img src="/books-logo.svg" alt="Books logo" className="header-logo" />
         <h1>Библиотека</h1>
       </header>
+      <Modal />
       <Routes>
         <Route path="/" element={<MainPage />} />
       </Routes>
