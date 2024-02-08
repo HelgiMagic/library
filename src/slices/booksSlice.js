@@ -1,8 +1,15 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
+const book = {
+  title: 'Harry Potter and philosopher stone',
+  picture: 'https://i.pinimg.com/originals/f3/10/4e/f3104ee11c298da850ded8c3df5220b8.jpg',
+  available: false,
+  id: 0,
+};
+
 const initialState = {
-  list: [],
+  list: [book],
   active: 0,
 };
 
