@@ -1,8 +1,8 @@
 import React from 'react';
 
-function AddBookButton() {
+function AddBookButton({ onClick }) {
   return (
-    <button type="button" className="add-book">
+    <button type="submit" className="add-book" onClick={onClick}>
       Добавить книгу
       <img src="/plus.svg" alt="" />
     </button>
