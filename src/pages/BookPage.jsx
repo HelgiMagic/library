@@ -11,7 +11,10 @@ export default function BookPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  const data = useSelector((state) => state.books.list).find((book) => book.id === id);
   useEffect(() => {
+    if (data !== undefined) return;
+
     const fetchData = async () => {
       const response = await axios.get(routes.certain(id));
 
@@ -20,8 +23,6 @@ export default function BookPage() {
 
     fetchData();
   }, []);
-
-  const data = useSelector((state) => state.books.list).find((book) => book.id === id);
 
   if (data === undefined) return null;
 

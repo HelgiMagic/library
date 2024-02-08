@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { swapFavorite, changeBook } from '../slices/booksSlice';
+import constants from '../constants';
 
 export default function Book({ data }) {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export default function Book({ data }) {
     dispatch(changeBook({ favorite: !favorite, id }));
   };
 
-  const link = `/books/${id}`;
+  const link = constants.linkToBook(id);
 
   return (
     <div className="book">
