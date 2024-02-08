@@ -2,7 +2,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  active: null,
+  active: null, // addBook | editAvailability
+  activeElemId: null,
 };
 
 const modalSlice = createSlice({
@@ -12,10 +13,13 @@ const modalSlice = createSlice({
     setActive(state, action) {
       state.active = action.payload;
     },
+    setActiveElemId(state, action) {
+      state.activeElemId = action.payload;
+    },
   },
 });
 
 export const {
-  setActive,
+  setActive, setActiveElemId,
 } = modalSlice.actions;
 export default modalSlice.reducer;

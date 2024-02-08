@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { swapFavorite, changeBook } from '../slices/booksSlice';
 
 export default function Book({ data }) {
@@ -23,6 +24,8 @@ export default function Book({ data }) {
     dispatch(changeBook({ favorite: !favorite, id }));
   };
 
+  const link = `/books/${id}`;
+
   return (
     <div className="book">
       <img src={pictureLink} alt="обложка книги" className="book-art" />
@@ -31,7 +34,7 @@ export default function Book({ data }) {
         <div className={statusClass}>{availableText}</div>
         <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><img src="/favorite.svg" alt="favorites" /></button>
       </div>
-      <button type="button" className="book-button">Подробнее</button>
+      <Link to={link} className="book-link">Подробнее</Link>
     </div>
   );
 }

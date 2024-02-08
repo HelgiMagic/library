@@ -5,9 +5,12 @@ import routes from '../routes';
 
 // const book = {
 //   title: 'Harry Potter and philosopher stone',
+//   description: 'Sujet bla bla bla',
 //   pictureLink: 'https://i.pinimg.com/originals/f3/10/4e/f3104ee11c298da850ded8c3df5220b8.jpg',
 //   available: false,
 //   favorite: false,
+//   whoFavorited: [],
+//   whoHas: 'name of user',
 //   id: 0,
 // };
 
@@ -16,7 +19,7 @@ const initialState = {
   active: 0,
 };
 
-export const addBook = createAsyncThunk(
+export const createBook = createAsyncThunk(
   'books/create',
   async (body) => {
     const response = await axios.post(routes.main(), body);
@@ -46,6 +49,9 @@ const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
+    addBook(state, action) {
+      state.list.push(action.payload);
+    },
     swapFavorite(state, action) {
       const id = action.payload;
 
@@ -53,10 +59,22 @@ const booksSlice = createSlice({
       elem.favorite = !elem.favorite;
       console.log(elem.favorite);
     },
+    changeAvailability(state, action) {
+      const { id, whoHas, available } = action.payload;
+
+      console.log(id, whoHas);
+
+      const elem = state.list.find((el) => el.id === id);
+      console.log(elem);
+      elem.whoHas = whoHas;
+      elem.available = available;
+
+      console.log(id, whoHas);
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(addBook.fulfilled, (state, action) => {
+      .addCase(createBook.fulfilled, (state, action) => {
         state.list.push(action.payload);
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
@@ -66,6 +84,6 @@ const booksSlice = createSlice({
 });
 
 export const {
-  swapFavorite,
+  addBook, swapFavorite, changeAvailability,
 } = booksSlice.actions;
 export default booksSlice.reducer;

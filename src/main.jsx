@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import './App.css';
 import {
-  BrowserRouter, Routes, Route,
+  BrowserRouter, Routes, Route, Link,
 } from 'react-router-dom';
 import MainPage from './pages/MainPage';
-import Modal from './components/Modal';
+import BookPage from './pages/BookPage';
+import Modal from './components/modals/Modal';
 import store from './slices/index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,11 +17,12 @@ root.render(
     <BrowserRouter>
       <header>
         <img src="/books-logo.svg" alt="Books logo" className="header-logo" />
-        <h1>Библиотека</h1>
+        <Link to="/"><h1>Библиотека</h1></Link>
       </header>
       <Modal />
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="books/:id" element={<BookPage />} />
       </Routes>
     </BrowserRouter>
   </Provider>,
