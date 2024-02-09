@@ -1,34 +1,36 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import { setActive } from '../slices/modalSlice';
-import { addBook } from '../slices/booksSlice';
-import AddBookButton from './AddBookButton';
+import { setActive } from '../../slices/modalSlice';
+import { createBook } from '../../slices/booksSlice';
+import AddBookButton from '../AddBookButton';
 
-export default function Modal() {
+export default function ModalAddNewBook() {
   const dispatch = useDispatch();
 
-  const { active } = useSelector((state) => state.modal);
   const [title, setTitle] = useState('');
   const [picLink, setPicLink] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handlePictureInput = (e) => setPicLink(e.target.value);
-
-  if (active === null) return null;
+  const handleDescriptionInput = (e) => setDescription(e.target.value);
 
   const handleClose = () => {
-    dispatch(setActive(null));
+    dispatch(setActive({ modal: null }));
 
     setTitle('');
     setPicLink('');
   };
 
   const handleSubmit = () => {
-    dispatch(addBook({
+    dispatch(createBook({
       title,
+      description,
       pictureLink: picLink,
       available: true,
       favorite: false,
+      whoFavorited: ['Alan', 'Jason', 'Кирилл', 'Борис'],
+      whoHas: '',
     }));
 
     handleClose();
@@ -47,6 +49,8 @@ export default function Modal() {
 
         <form className="modalForm" onSubmit={handleSubmit}>
           <input placeholder="Название книги" className="modal-input" onInput={handleTitleInput} value={title} />
+
+          <input placeholder="Описание книги" className="modal-input" onInput={handleDescriptionInput} value={description} />
 
           <input placeholder="Ссылка на обложку" className="modal-input" onInput={handlePictureInput} value={picLink} />
 

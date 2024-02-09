@@ -1,7 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { swapFavorite, changeBook } from '../slices/booksSlice';
+import { Link } from 'react-router-dom';
+import { changeBook } from '../slices/booksSlice';
+import constants from '../constants';
 
 export default function Book({ data }) {
   const dispatch = useDispatch();
@@ -19,9 +21,10 @@ export default function Book({ data }) {
   const availableText = available ? 'Доступна' : 'На руках';
 
   const handleFavoriteClick = () => {
-    dispatch(swapFavorite(id));
     dispatch(changeBook({ favorite: !favorite, id }));
   };
+
+  const link = `${constants.LINK_BOOKS}/${id}`;
 
   return (
     <div className="book">
@@ -31,7 +34,7 @@ export default function Book({ data }) {
         <div className={statusClass}>{availableText}</div>
         <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><img src="/favorite.svg" alt="favorites" /></button>
       </div>
-      <button type="button" className="book-button">Подробнее</button>
+      <Link to={link} className="book-link">Подробнее</Link>
     </div>
   );
 }

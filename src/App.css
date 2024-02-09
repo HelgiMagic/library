@@ -48,6 +48,10 @@ header {
   align-items: center;
 }
 
+header a {
+  text-decoration: none;
+}
+
 .header-logo {
   width: 40px;
   height: auto;
@@ -140,7 +144,7 @@ h1 {
 }
 
 
-.book-status, .book-button {
+.book-status, .book-link, .bookpage-btn {
   padding: 10px 0;
   border-radius: 8px;
   font-size: 15px;
@@ -177,10 +181,12 @@ h1 {
   background-color: #ffdd2d !important;
 }
 
-.book-button {
+.book-link {
   border: 0;
   background-color: #322922;
   color: white;
+
+  text-decoration: none;
 }
 
 .available {
@@ -270,4 +276,52 @@ h1 {
   width: 100%;
   max-width: none;
   margin-bottom: 0;
+}
+
+.bookpage {
+  display: flex;
+  gap: 40px;
+  color: white;
+
+  text-align: start;
+}
+
+.bookpage-img {
+  width: 300px;
+}
+
+.bookpage-column {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.gap-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bookpage h2 {
+  font-weight: normal;
+}
+
+.bookpage-row {
+  display: flex;
+  gap: 5px;
+}
+
+.bookpage-row .book-status {
+  width: 200px;
+
+  text-align: center;
+}
+
+.bookpage-btn {
+  border: 0;
+  background-color: #231d36;
+  color: white;
+  flex-grow: 1;
 }
