@@ -18,7 +18,7 @@ export default function ModalEditAvailability({ id }) {
   const handleSubmit = () => {
     const available = whoHas === '';
 
-    dispatch(changeBook({ id, whoHas, available }));
+    dispatch(changeBook({ whoHas, available, id }));
     handleClose();
   };
 
