@@ -16,7 +16,7 @@ export default function ModalAddNewBook() {
   const handleDescriptionInput = (e) => setDescription(e.target.value);
 
   const handleClose = () => {
-    dispatch(setActive(null));
+    dispatch(setActive({ modal: null }));
 
     setTitle('');
     setPicLink('');

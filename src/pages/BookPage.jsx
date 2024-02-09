@@ -1,27 +1,20 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import routes from '../routes';
-import { setActive, setActiveElemId } from '../slices/modalSlice';
-import { addBook } from '../slices/booksSlice';
+import { setActive } from '../slices/modalSlice';
+import { fetchOneBook } from '../slices/booksSlice';
+import constants from '../constants';
 
 export default function BookPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.books.list).find((book) => book.id === id);
+
   useEffect(() => {
     if (data !== undefined) return;
-
-    const fetchData = async () => {
-      const response = await axios.get(routes.certain(id));
-
-      dispatch(addBook(response.data));
-    };
-
-    fetchData();
+    dispatch(fetchOneBook(id));
   }, []);
 
   if (data === undefined) return null;
@@ -37,8 +30,10 @@ export default function BookPage() {
   const whoFavoritedText = whoFavorited.length > 0 ? `Желающие прочитать: ${whoFavorited}` : '';
 
   const handleChangeAvailability = () => {
-    dispatch(setActive('editAvailability'));
-    dispatch(setActiveElemId(id));
+    dispatch(setActive({
+      modal: constants.MODAL_EDIT_AVAILABILITY,
+      elementId: id,
+    }));
   };
 
   return (

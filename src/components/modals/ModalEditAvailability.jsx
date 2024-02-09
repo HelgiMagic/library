@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setActive } from '../../slices/modalSlice';
-import { changeAvailability, changeBook } from '../../slices/booksSlice';
+import { changeBook } from '../../slices/booksSlice';
 
 export default function ModalEditAvailability({ id }) {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export default function ModalEditAvailability({ id }) {
   const handleWhoHasInput = (e) => setWhoHas(e.target.value);
 
   const handleClose = () => {
-    dispatch(setActive(null));
+    dispatch(setActive({ modal: null }));
 
     setWhoHas('');
   };
@@ -18,9 +18,7 @@ export default function ModalEditAvailability({ id }) {
   const handleSubmit = () => {
     const available = whoHas === '';
 
-    const changedData = { id, whoHas, available };
-    dispatch(changeAvailability(changedData));
-    dispatch(changeBook(changedData));
+    dispatch(changeBook({ id, whoHas, available }));
     handleClose();
   };
 

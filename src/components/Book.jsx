@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { swapFavorite, changeBook } from '../slices/booksSlice';
+import { changeBook } from '../slices/booksSlice';
 import constants from '../constants';
 
 export default function Book({ data }) {
@@ -21,7 +21,6 @@ export default function Book({ data }) {
   const availableText = available ? 'Доступна' : 'На руках';
 
   const handleFavoriteClick = () => {
-    dispatch(swapFavorite(id));
     dispatch(changeBook({ favorite: !favorite, id }));
   };
 

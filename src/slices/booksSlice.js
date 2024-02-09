@@ -19,59 +19,38 @@ const initialState = {
   active: 0,
 };
 
-export const createBook = createAsyncThunk(
-  'books/create',
-  async (body) => {
-    const response = await axios.post(routes.main(), body);
-    return response.data;
-  },
-);
+export const createBook = createAsyncThunk('books/create', async (body) => {
+  const response = await axios.post(routes.main(), body);
+  return response.data;
+});
 
 export const changeBook = createAsyncThunk(
   'books/change',
-  async (updatedBody) => {
-    const oldBody = await axios.get(routes.certain(updatedBody.id));
-    console.log(updatedBody);
-    console.log({ ...updatedBody, ...oldBody.data });
-    await axios.put(routes.certain(updatedBody.id), { ...oldBody.data, ...updatedBody });
+  async (updatedBody, { getState }) => {
+    const state = getState();
+    const oldBody = state.books.list.find((book) => book.id === updatedBody.id);
+
+    await axios.put(routes.certain(updatedBody.id), {
+      ...oldBody,
+      ...updatedBody,
+    });
   },
 );
 
-export const fetchBooks = createAsyncThunk(
-  'books/fetch',
-  async () => {
-    const response = await axios.get(routes.main());
-    return response.data;
-  },
-);
+export const fetchBooks = createAsyncThunk('books/fetch', async () => {
+  const response = await axios.get(routes.main());
+  return response.data;
+});
+
+export const fetchOneBook = createAsyncThunk('books/fetch-one', async (id) => {
+  const response = await axios.get(routes.certain(id));
+  return response.data;
+});
 
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {
-    addBook(state, action) {
-      state.list.push(action.payload);
-    },
-    swapFavorite(state, action) {
-      const id = action.payload;
-
-      const elem = state.list.find((el) => el.id === id);
-      elem.favorite = !elem.favorite;
-      console.log(elem.favorite);
-    },
-    changeAvailability(state, action) {
-      const { id, whoHas, available } = action.payload;
-
-      console.log(id, whoHas);
-
-      const elem = state.list.find((el) => el.id === id);
-      console.log(elem);
-      elem.whoHas = whoHas;
-      elem.available = available;
-
-      console.log(id, whoHas);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(createBook.fulfilled, (state, action) => {
@@ -79,11 +58,17 @@ const booksSlice = createSlice({
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
         state.list = action.payload;
+      })
+      .addCase(fetchOneBook.fulfilled, (state, action) => {
+        state.list.push(action.payload);
+      })
+      .addCase(changeBook.pending, (state, action) => {
+        const data = action.meta.arg;
+
+        const elemIndex = state.list.findIndex((book) => book.id === data.id);
+        state.list[elemIndex] = { ...state.list[elemIndex], ...data };
       });
   },
 });
 
-export const {
-  addBook, swapFavorite, changeAvailability,
-} = booksSlice.actions;
 export default booksSlice.reducer;

@@ -6,10 +6,10 @@ import ModalEditAvailability from './ModalEditAvailability';
 import constants from '../../constants';
 
 export default function Modal() {
-  const { active, activeElemId } = useSelector((state) => state.modal);
+  const { active, activeElementId } = useSelector((state) => state.modal);
 
   if (active === constants.MODAL_ADD_BOOK) return <ModalAddNewBook />;
-  if (active === constants.MODAL_EDIT_AVAILABILITY) return <ModalEditAvailability id={activeElemId} />;
+  if (active === constants.MODAL_EDIT_AVAILABILITY) return <ModalEditAvailability id={activeElementId} />;
 
   return null;
 }
