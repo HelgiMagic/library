@@ -8,8 +8,8 @@ import constants from '../../constants';
 export default function Modal() {
   const { active, activeElemId } = useSelector((state) => state.modal);
 
-  if (active === constants.modal.addBook) return <ModalAddNewBook />;
-  if (active === constants.modal.editAvailability) return <ModalEditAvailability id={activeElemId} />;
+  if (active === constants.MODAL_ADD_BOOK) return <ModalAddNewBook />;
+  if (active === constants.MODAL_EDIT_AVAILABILITY) return <ModalEditAvailability id={activeElemId} />;
 
   return null;
 }

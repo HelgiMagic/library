@@ -1,10 +1,7 @@
 const constants = {
-  linkToBook: (id) => `books/${id}/`,
-  bookRoute: 'books/:id',
-  modal: {
-    addBook: 'addBook',
-    editAvailability: 'editAvailability',
-  },
+  LINK_BOOKS: 'books',
+  MODAL_ADD_BOOK: 'addBook',
+  MODAL_EDIT_AVAILABILITY: 'editAvailability',
 };
 
 export default constants;

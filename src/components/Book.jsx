@@ -25,7 +25,7 @@ export default function Book({ data }) {
     dispatch(changeBook({ favorite: !favorite, id }));
   };
 
-  const link = constants.linkToBook(id);
+  const link = `${constants.LINK_BOOKS}/${id}`;
 
   return (
     <div className="book">

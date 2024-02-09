@@ -9,6 +9,7 @@ import MainPage from './pages/MainPage';
 import BookPage from './pages/BookPage';
 import Modal from './components/modals/Modal';
 import store from './slices/index';
+import constants from './constants';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,7 +23,7 @@ root.render(
       <Modal />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="books/:id" element={<BookPage />} />
+        <Route path={`${constants.LINK_BOOKS}/:id`} element={<BookPage />} />
       </Routes>
     </BrowserRouter>
   </Provider>,
