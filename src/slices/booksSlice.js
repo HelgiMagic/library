@@ -16,7 +16,6 @@ import routes from '../routes';
 
 const initialState = {
   list: [],
-  active: 0,
 };
 
 export const createBook = createAsyncThunk('books/create', async (body) => {
@@ -24,18 +23,15 @@ export const createBook = createAsyncThunk('books/create', async (body) => {
   return response.data;
 });
 
-export const changeBook = createAsyncThunk(
-  'books/change',
-  async (updatedBody, { getState }) => {
-    const state = getState();
-    const oldBody = state.books.list.find((book) => book.id === updatedBody.id);
+export const changeBook = createAsyncThunk('books/change', async (updatedBody, { getState }) => {
+  const state = getState();
+  const oldBody = state.books.list.find((book) => book.id === updatedBody.id);
 
-    await axios.put(routes.certain(updatedBody.id), {
-      ...oldBody,
-      ...updatedBody,
-    });
-  },
-);
+  await axios.put(routes.certain(updatedBody.id), {
+    ...oldBody,
+    ...updatedBody,
+  });
+});
 
 export const fetchBooks = createAsyncThunk('books/fetch', async () => {
   const response = await axios.get(routes.main());
