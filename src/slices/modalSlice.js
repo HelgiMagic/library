@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  active: null, // addBook | editAvailability
+  active: null, // addBook | editAvailability | editBook
   activeElementId: null,
 };
 
