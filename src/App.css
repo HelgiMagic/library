@@ -293,15 +293,41 @@ h1 {
 .bookpage-column {
   display: flex;
   flex-direction: column;
+  max-width: 600px;
 
   justify-content: space-between;
-  padding: 10px 0;
+  padding-top: 10px;
 }
 
 .gap-column {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.justify-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+
+  border-radius: 8px;
+}
+
+.edit-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.edit-btn:hover img {
+  content: url('/edit-hover.svg');
 }
 
 .bookpage h2 {
@@ -314,7 +340,7 @@ h1 {
 }
 
 .bookpage-row .book-status {
-  width: 200px;
+  width: 135px;
 
   text-align: center;
 }
@@ -324,4 +350,6 @@ h1 {
   background-color: #231d36;
   color: white;
   flex-grow: 1;
+
+  max-width: 275px;
 }

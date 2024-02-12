@@ -41,11 +41,15 @@ export default function BookPage() {
       <img src={data.pictureLink} alt="book art" className="bookpage-img" />
       <div className="bookpage-column">
         <div className="gap-column">
-          <h2>{data.title}</h2>
+          <div className="justify-row">
+            <h2>{data.title}</h2>
+            <button type="button" className="svgButton edit-btn"><img src="/edit.svg" alt="edit" /></button>
+          </div>
           <p>{data.description}</p>
         </div>
 
         <div className="gap-column">
+          <button type="button" className="bookpage-btn">Редактировать</button>
           <div className="bookpage-row">
             <div className={statusClass}>{availableText}</div>
             <button type="button" className="bookpage-btn" onClick={handleChangeAvailability}>Изменить доступность</button>
