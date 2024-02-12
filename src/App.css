@@ -214,6 +214,20 @@ h1 {
   gap: 20px;
 }
 
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.modal p {
+  color: white;
+  text-align: start;
+}
+
+.danger {
+  background-color: #e25858 !important;
+}
+
 .modal .bookpage-btn {
   max-width: none;
 }
@@ -339,8 +353,12 @@ h1 {
   height: 18px;
 }
 
-.edit-btn:hover img {
+#edit:hover img {
   content: url('/edit-hover.svg');
+}
+
+#delete:hover img {
+  content: url('/delete-hover.svg');
 }
 
 .bookpage h2 {

@@ -43,6 +43,13 @@ export default function BookPage() {
     }));
   };
 
+  const handleDeleteBook = () => {
+    dispatch(setActive({
+      modal: constants.MODAL_DELETE_BOOK,
+      elementId: id,
+    }));
+  };
+
   return (
     <div className="main bookpage">
       <img src={data.pictureLink} alt="book art" className="bookpage-img" />
@@ -50,7 +57,10 @@ export default function BookPage() {
         <div className="gap-column">
           <div className="justify-row">
             <h2>{data.title}</h2>
-            <button type="button" className="svgButton edit-btn" onClick={handleEditBook}><img src="/edit.svg" alt="edit" /></button>
+            <div>
+              <button type="button" className="svgButton edit-btn" onClick={handleEditBook} id="edit"><img src="/edit.svg" alt="edit" /></button>
+              <button type="button" className="svgButton edit-btn" onClick={handleDeleteBook} id="delete"><img src="/delete.svg" alt="delete" /></button>
+            </div>
           </div>
           <p>{data.description}</p>
         </div>
