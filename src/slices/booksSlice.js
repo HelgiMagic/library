@@ -33,6 +33,11 @@ export const changeBook = createAsyncThunk('books/change', async (updatedBody, {
   });
 });
 
+export const deleteBook = createAsyncThunk('books/delete', async (id) => {
+  const response = await axios.delete(routes.certain(id));
+  return response.data;
+});
+
 export const fetchBooks = createAsyncThunk('books/fetch', async () => {
   const response = await axios.get(routes.main());
   return response.data;
@@ -63,6 +68,11 @@ const booksSlice = createSlice({
 
         const elemIndex = state.list.findIndex((book) => book.id === data.id);
         state.list[elemIndex] = { ...state.list[elemIndex], ...data };
+      })
+      .addCase(deleteBook.fulfilled, (state, action) => {
+        const { id } = action.payload;
+
+        state.list = state.list.filter((book) => book.id !== id);
       });
   },
 });
