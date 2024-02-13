@@ -16,6 +16,17 @@ const Wrapper = styled.div`
   text-align: start;
 `;
 
+const ArtColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const StatsButton = styled.button`
+  background-color: #56b9f6;
+  border: 0;
+`;
+
 const Column = styled.div`
   display: flex;
   flex-direction: column;
@@ -105,9 +116,19 @@ export default function BookPage() {
     }));
   };
 
+  const handleOpenStats = () => {
+    dispatch(setActive({
+      modal: constants.MODAL_STATISTICS,
+      elementId: id,
+    }));
+  };
+
   return (
     <Wrapper className="main">
-      <Art src={data.pictureLink} alt="book art" />
+      <ArtColumn>
+        <Art src={data.pictureLink} alt="book art" />
+        <StatsButton type="button" className="button-like" onClick={handleOpenStats}>История</StatsButton>
+      </ArtColumn>
       <Column>
         <Group>
           <JustifyRow>

@@ -5,6 +5,7 @@ import ModalAddNewBook from './ModalAddNewBook';
 import ModalEditAvailability from './ModalEditAvailability';
 import ModalEditBook from './ModalEditBook';
 import ModalDeleteBook from './ModalDeleteBook';
+import ModalStatistics from './ModalStatistics';
 import constants from '../../constants';
 
 export default function Modal() {
@@ -22,6 +23,9 @@ export default function Modal() {
 
     case constants.MODAL_DELETE_BOOK:
       return <ModalDeleteBook id={activeElementId} />;
+
+    case constants.MODAL_STATISTICS:
+      return <ModalStatistics id={activeElementId} />;
 
     default:
       return null;

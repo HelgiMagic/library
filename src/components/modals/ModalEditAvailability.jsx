@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setActive } from '../../slices/modalSlice';
 import { changeBook } from '../../slices/booksSlice';
+import getNewStats from '../../functions/getNewStats';
 
 export default function ModalEditAvailability({ id }) {
   const dispatch = useDispatch();
@@ -15,10 +16,15 @@ export default function ModalEditAvailability({ id }) {
     setWhoHas('');
   };
 
+  const book = useSelector((state) => state.books.list).find((elem) => elem.id === id);
+
   const handleSubmit = () => {
+    const statistics = getNewStats(book, whoHas);
     const available = whoHas === '';
 
-    dispatch(changeBook({ whoHas, available, id }));
+    dispatch(changeBook({
+      whoHas, available, id, statistics,
+    }));
     handleClose();
   };
 

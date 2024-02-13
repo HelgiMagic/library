@@ -65,7 +65,7 @@ header a {
   padding: 50px 0;
 }
 
-.book-status, .book-link, .bookpage-btn {
+.book-status, .book-link, .bookpage-btn, .button-like {
   padding: 10px 0;
   border-radius: 8px;
   font-size: 15px;

@@ -12,6 +12,7 @@ import routes from '../routes';
 //   whoFavorited: [],
 //   whoHas: 'name of user',
 //   id: 0,
+//   statistics: [{ name: Денис, action: took | returned, date: 13.02.2024 }];
 // };
 
 const initialState = {
