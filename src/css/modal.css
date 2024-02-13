@@ -78,13 +78,9 @@
   border: 1px solid #5e60ce;
 }
 
-.svgButton {
-  background-color: transparent;
-  border: none;
-}
-
 .first-row {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   color: white;
 }

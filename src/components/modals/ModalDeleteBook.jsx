@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setActive } from '../../slices/modalSlice';
 import { deleteBook } from '../../slices/booksSlice';
+import IconButton from '../ui/IconButton';
 
 export default function ModalDeleteBook({ id }) {
   const dispatch = useDispatch();
@@ -24,9 +25,7 @@ export default function ModalDeleteBook({ id }) {
       <div className="modal">
         <div className="d-flex first-row">
           <h2>Удалить книгу</h2>
-          <button className="svgButton" type="button" onClick={handleClose}>
-            <img src="/closeModal.svg" alt="close modal button" />
-          </button>
+          <IconButton name="closeModal" width="20px" onClick={handleClose} />
         </div>
 
         <p>Вы уверены?</p>

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { setActive } from '../../slices/modalSlice';
 import { createBook } from '../../slices/booksSlice';
 import AddBookButton from '../AddBookButton';
+import IconButton from '../ui/IconButton';
 
 export default function ModalAddNewBook() {
   const dispatch = useDispatch();
@@ -42,9 +43,7 @@ export default function ModalAddNewBook() {
       <div className="modal">
         <div className="d-flex first-row">
           <h2>Добавить книгу</h2>
-          <button className="svgButton" type="button" onClick={handleClose}>
-            <img src="/closeModal.svg" alt="close modal button" />
-          </button>
+          <IconButton name="closeModal" width="20px" onClick={handleClose} />
         </div>
 
         <form className="modalForm" onSubmit={handleSubmit}>

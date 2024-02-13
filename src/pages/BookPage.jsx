@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { setActive } from '../slices/modalSlice';
 import { fetchOneBook } from '../slices/booksSlice';
 import constants from '../constants';
-import Icon from '../components/Icon';
+import IconButton from '../components/ui/IconButton';
 
 const Wrapper = styled.div`
   display: flex;
@@ -114,8 +114,8 @@ export default function BookPage() {
           <JustifyRow>
             <Title>{data.title}</Title>
             <div>
-              <button type="button" className="svgButton" onClick={handleEditBook} id="edit"><Icon name="edit" width="18px" /></button>
-              <button type="button" className="svgButton" onClick={handleDeleteBook} id="delete"><Icon name="delete" width="18px" /></button>
+              <IconButton name="edit" width="18px" onClick={handleEditBook} id="edit" />
+              <IconButton name="delete" width="18px" onClick={handleDeleteBook} id="delete" />
             </div>
           </JustifyRow>
           <p>{data.description}</p>

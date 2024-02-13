@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setActive } from '../../slices/modalSlice';
 import { changeBook } from '../../slices/booksSlice';
+import IconButton from '../ui/IconButton';
 
 export default function ModalEditAvailability({ id }) {
   const dispatch = useDispatch();
@@ -28,9 +29,7 @@ export default function ModalEditAvailability({ id }) {
       <div className="modal">
         <div className="d-flex first-row">
           <h2>Добавить книгу</h2>
-          <button className="svgButton" type="button" onClick={handleClose}>
-            <img src="/closeModal.svg" alt="close modal button" />
-          </button>
+          <IconButton name="closeModal" width="20px" onClick={handleClose} />
         </div>
 
         <form className="modalForm" onSubmit={handleSubmit}>

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { changeBook } from '../slices/booksSlice';
 import constants from '../constants';
+import Icon from './Icon';
 
 const BookWrapper = styled.div`
   display: flex;
@@ -62,7 +63,7 @@ export default function Book({ data }) {
       <Title>{title}</Title>
       <div className="book-row">
         <div className={statusClass}>{availableText}</div>
-        <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><img src="/favorite.svg" alt="favorites" /></button>
+        <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><Icon name="favorite" width="20px" /></button>
       </div>
       <Link to={link} className="book-link">Подробнее</Link>
     </BookWrapper>
