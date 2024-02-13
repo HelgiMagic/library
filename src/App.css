@@ -69,15 +69,15 @@ header a {
   width: 500px;
   max-width: 70%;
   padding: 16px;
-  
+
   border: none;
   border-radius: 8px;
-  
+
   background: #6e807a;
   color: #f2f2f2;
 
   font-size: 14px;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,10 +130,10 @@ h1 {
 
 .book-title {
   padding: 2px 0;
-  color: white; 
-  
+  color: white;
+
   border-radius: var(--book-radius) var(--book-radius) 0 0;
-  
+
   font-size: 18px;
   font-weight: normal;
 
@@ -143,6 +143,13 @@ h1 {
   min-height: 60px;
 }
 
+.button-like {
+  padding: 10px 0;
+  border-radius: 8px;
+  font-size: 15px;
+
+  width: 100%;
+}
 
 .book-status, .book-link, .bookpage-btn {
   padding: 10px 0;
@@ -154,6 +161,7 @@ h1 {
 
 .book-status {
   background-color: #ff9b9b;
+  color: black;
 }
 
 .book-row {
@@ -192,196 +200,4 @@ h1 {
 .available {
   background-color: var(--dark-green);
   color: white;
-}
-
-.unavailable {
-  /* background-color: #ff9b9b; */
-  color: black;
-}
-
-.modal {
-  width: 95%;
-  max-width: 457px;
-  padding: 20px;
-
-  border-radius: 10px;
-  border: 1px solid var(--gray-500);
-
-  background: var(--gray-400);
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.btn-row {
-  display: flex;
-  gap: 10px;
-}
-
-.modal p {
-  color: white;
-  text-align: start;
-}
-
-.danger {
-  background-color: #e25858 !important;
-}
-
-.modal .bookpage-btn {
-  max-width: none;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-
-  display: block;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-}
-
-.modalForm {
-  display: flex;
-  flex-direction: column;
-
-  gap: 10px;
-}
-
-.modal-input {
-  outline: none;
-
-  border-radius: 8px;
-  border: 1px solid var(--gray-700);
-  background-color: var(--gray-500);
-
-  color: var(--gray-300);
-  font-size: 14px;
-  font-weight: 400;
-
-  height: 38px;
-
-  padding-left: 16px;
-}
-
-.modal-input:focus {
-  border: 1px solid #5e60ce;  
-}
-
-.svgButton {
-  background-color: transparent;
-  border: none;
-}
-
-.first-row {
-  display: flex;
-  justify-content: space-between;
-  color: white;
-}
-
-.modalForm .add-book {
-  width: 100%;
-  max-width: none;
-  margin-bottom: 0;
-}
-
-.bookpage {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  color: white;
-
-  text-align: start;
-}
-
-.bookpage-img {
-  height: max-content;
-  width: 300px;
-}
-
-.bookpage-column {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-
-  justify-content: space-between;
-  padding-top: 10px;
-
-  min-height: 600px;
-}
-
-.gap-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.justify-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 50px;
-}
-
-.gap-column p {
-  padding-right: 50px;
-}
-
-.edit-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 22px;
-  height: 22px;
-
-  border-radius: 8px;
-}
-
-.edit-btn img {
-  width: 18px;
-  height: 18px;
-}
-
-#edit:hover img {
-  content: url('/edit-hover.svg');
-}
-
-#delete:hover img {
-  content: url('/delete-hover.svg');
-}
-
-.bookpage h2 {
-  font-weight: normal;
-}
-
-.bookpage-row {
-  display: flex;
-  gap: 5px;
-}
-
-.bookpage-row .book-status {
-  width: 135px;
-
-  text-align: center;
-}
-
-.bookpage-btn {
-  border: 0;
-  background-color: #231d36;
-  color: white;
-  flex-grow: 1;
-
-  max-width: 275px;
 }

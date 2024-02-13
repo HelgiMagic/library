@@ -12,7 +12,6 @@ export default function Book({ data }) {
   } = data;
 
   const statusClass = classNames('book-status', {
-    unavailable: !available,
     available,
   });
 

@@ -2,9 +2,64 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 import { setActive } from '../slices/modalSlice';
 import { fetchOneBook } from '../slices/booksSlice';
 import constants from '../constants';
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  color: white;
+
+  text-align: start;
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+
+  justify-content: space-between;
+  padding-top: 10px;
+
+  min-height: 600px;
+`;
+
+const Art = styled.img`
+  height: max-content;
+  width: 300px;
+`;
+
+const Group = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const JustifyRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 50px;
+`;
+
+const Title = styled.h2`
+  font-weight: normal;
+`;
+
+const StatusRow = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+
+const Status = styled.div`
+  width: 135px;
+
+  text-align: center;
+`;
 
 export default function BookPage() {
   const { id } = useParams();
@@ -51,29 +106,29 @@ export default function BookPage() {
   };
 
   return (
-    <div className="main bookpage">
-      <img src={data.pictureLink} alt="book art" className="bookpage-img" />
-      <div className="bookpage-column">
-        <div className="gap-column">
-          <div className="justify-row">
-            <h2>{data.title}</h2>
+    <Wrapper className="main">
+      <Art src={data.pictureLink} alt="book art" />
+      <Column>
+        <Group>
+          <JustifyRow>
+            <Title>{data.title}</Title>
             <div>
               <button type="button" className="svgButton edit-btn" onClick={handleEditBook} id="edit"><img src="/edit.svg" alt="edit" /></button>
               <button type="button" className="svgButton edit-btn" onClick={handleDeleteBook} id="delete"><img src="/delete.svg" alt="delete" /></button>
             </div>
-          </div>
+          </JustifyRow>
           <p>{data.description}</p>
-        </div>
+        </Group>
 
-        <div className="gap-column">
-          <div className="bookpage-row">
-            <div className={statusClass}>{availableText}</div>
+        <Group>
+          <StatusRow>
+            <Status className={statusClass}>{availableText}</Status>
             <button type="button" className="bookpage-btn" onClick={handleChangeAvailability}>Изменить доступность</button>
-          </div>
+          </StatusRow>
           <p>{pText}</p>
           <p>{whoFavoritedText}</p>
-        </div>
-      </div>
-    </div>
+        </Group>
+      </Column>
+    </Wrapper>
   );
 }

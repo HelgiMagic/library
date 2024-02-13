@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+
 import './App.css';
+import './components/ui/bookpage.css';
+import './components/ui/modal.css';
+
 import {
   BrowserRouter, Routes, Route, Link,
 } from 'react-router-dom';

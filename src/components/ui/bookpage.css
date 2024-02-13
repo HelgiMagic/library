@@ -1,0 +1,31 @@
+.edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+
+  border-radius: 8px;
+}
+  
+.edit-btn img {
+  width: 18px;
+  height: 18px;
+}
+  
+#edit:hover img {
+  content: url('/edit-hover.svg');
+}
+  
+#delete:hover img {
+  content: url('/delete-hover.svg');
+}
+
+.bookpage-btn {
+  border: 0;
+  background-color: #231d36;
+  color: white;
+  flex-grow: 1;
+
+  max-width: 275px;
+}
