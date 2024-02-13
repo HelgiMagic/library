@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import './App.css';
-import './components/ui/bookpage.css';
-import './components/ui/modal.css';
-import './components/ui/book.css';
-import './components/ui/mainpage.css';
+import './css/bookpage.css';
+import './css/modal.css';
+import './css/book.css';
+import './css/mainpage.css';
 
 import {
   BrowserRouter, Routes, Route, Link,

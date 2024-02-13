@@ -1,18 +1,3 @@
-.edit-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 22px;
-  height: 22px;
-
-  border-radius: 8px;
-}
-  
-.edit-btn img {
-  width: 18px;
-  height: 18px;
-}
-  
 #edit:hover img {
   content: url('/edit-hover.svg');
 }
