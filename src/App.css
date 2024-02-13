@@ -298,6 +298,7 @@ h1 {
 
 .bookpage {
   display: flex;
+  justify-content: center;
   gap: 40px;
   color: white;
 
