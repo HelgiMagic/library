@@ -71,3 +71,23 @@ export const Status = styled.div`
 
   text-align: center;
 `;
+
+export const ChangeAvailability = styled(Button)`
+  background-color: var(--purple);
+  color: white;
+  flex-grow: 1;
+
+  max-width: 275px;
+`;
+
+// export const Edit = styled(IconButton)`
+//   &:hover img {
+//     content: url('/edit-hover.svg');
+//   }
+// `;
+
+// export const Delete = styled(IconButton)`
+//   &:hover img {
+//     content: url('/delete-hover.svg');
+//   }
+// `;

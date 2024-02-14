@@ -5,7 +5,7 @@ import { setActive } from '../../../slices/modalSlice';
 import { deleteBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
 import * as ui from '../Modal.styled';
-import Button from '../../ui/Button';
+import { BtnRow, DangerButton } from './ModalDeleteBook.styled';
 
 export default function ModalDeleteBook({ id }) {
   const dispatch = useDispatch();
@@ -31,10 +31,10 @@ export default function ModalDeleteBook({ id }) {
         </ui.TitleRow>
 
         <p>Вы уверены?</p>
-        <div className="btn-row">
-          <Button type="button" className="bookpage-btn danger" onClick={handleDelete} size="small">Да, удалить</Button>
-          <Button type="button" className="bookpage-btn" onClick={handleClose} size="small">Нет, вернуться</Button>
-        </div>
+        <BtnRow>
+          <DangerButton type="button" onClick={handleDelete} size="small">Да, удалить</DangerButton>
+          <ui.SubmitButton type="button" onClick={handleClose} size="small">Нет, вернуться</ui.SubmitButton>
+        </BtnRow>
       </ui.Modal>
     </>
   );

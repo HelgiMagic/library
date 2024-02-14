@@ -1,15 +1,6 @@
-.btn-row {
-  display: flex;
-  gap: 10px;
-}
-
 .modal p {
   color: white;
   text-align: start;
-}
-
-.danger {
-  background-color: #e25858 !important;
 }
 
 .modal .bookpage-btn {

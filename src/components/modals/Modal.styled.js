@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../ui/Button';
 
 export const Overlay = styled.div`
   position: fixed;
@@ -64,4 +65,10 @@ export const Input = styled.input`
   &:focus {
     border: 1px solid #5e60ce;
   }
+`;
+
+export const SubmitButton = styled(Button)`
+  background-color: var(--purple);
+  color: white;
+  flex-grow: 1;
 `;

@@ -5,11 +5,3 @@
 #delete:hover img {
   content: url('/delete-hover.svg');
 }
-
-.bookpage-btn {
-  background-color: #231d36;
-  color: white;
-  flex-grow: 1;
-
-  max-width: 275px;
-}

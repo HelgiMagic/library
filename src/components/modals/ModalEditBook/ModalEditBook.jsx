@@ -4,7 +4,6 @@ import { setActive } from '../../../slices/modalSlice';
 import { changeBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
 import * as ui from '../Modal.styled';
-import Button from '../../ui/Button';
 
 export default function ModalEditBook({ id }) {
   const dispatch = useDispatch();
@@ -51,7 +50,7 @@ export default function ModalEditBook({ id }) {
 
           <ui.Input placeholder="Желающие прочитать" onInput={handleWhoFavoritedInput} value={whoFavorited} />
 
-          <Button type="submit" className="bookpage-btn">Изменить книгу</Button>
+          <ui.SubmitButton type="submit" size="small">Изменить книгу</ui.SubmitButton>
         </ui.Form>
       </ui.Modal>
     </>
