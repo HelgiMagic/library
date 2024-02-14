@@ -34,7 +34,7 @@ export default function ModalAddNewBook() {
       pictureLink: picLink,
       available: true,
       favorite: false,
-      whoFavorited: ['Alan', 'Jason', 'Кирилл', 'Борис'],
+      whoFavorited: [],
       whoHas: '',
     }));
 
