@@ -5,7 +5,9 @@ import ModalAddNewBook from './ModalAddNewBook';
 import ModalEditAvailability from './ModalEditAvailability';
 import ModalEditBook from './ModalEditBook';
 import ModalDeleteBook from './ModalDeleteBook';
+import ModalStatistics from './ModalStatistics';
 import constants from '../../constants';
+import './modal.css';
 
 export default function Modal() {
   const { active, activeElementId } = useSelector((state) => state.modal);
@@ -22,6 +24,9 @@ export default function Modal() {
 
     case constants.MODAL_DELETE_BOOK:
       return <ModalDeleteBook id={activeElementId} />;
+
+    case constants.MODAL_STATISTICS:
+      return <ModalStatistics id={activeElementId} />;
 
     default:
       return null;

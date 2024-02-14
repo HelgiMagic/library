@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from './ui/Icon';
-import Button from './ui/Button';
+import Icon from '../ui/Icon';
+import Button from '../ui/Button';
 
 function RightIcon() {
   return <Icon name="plus" size="small" />;

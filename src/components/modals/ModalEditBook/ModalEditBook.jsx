@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setActive } from '../../slices/modalSlice';
-import { changeBook } from '../../slices/booksSlice';
-import IconButton from '../ui/IconButton';
-import * as ui from './Modal.styled';
-import Button from '../ui/Button';
+import { setActive } from '../../../slices/modalSlice';
+import { changeBook } from '../../../slices/booksSlice';
+import IconButton from '../../ui/IconButton';
+import * as ui from '../Modal.styled';
+import Button from '../../ui/Button';
 
 export default function ModalEditBook({ id }) {
   const dispatch = useDispatch();

@@ -4,6 +4,7 @@ const constants = {
   MODAL_EDIT_AVAILABILITY: 'editAvailability',
   MODAL_EDIT_BOOK: 'editBook',
   MODAL_DELETE_BOOK: 'deleteBook',
+  MODAL_STATISTICS: 'statistics',
 };
 
 export default constants;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setActive } from '../../slices/modalSlice';
-import { changeBook } from '../../slices/booksSlice';
-import IconButton from '../ui/IconButton';
-import * as ui from './Modal.styled';
-import Button from '../ui/Button/Button';
+import { setActive } from '../../../slices/modalSlice';
+import { changeBook } from '../../../slices/booksSlice';
+import IconButton from '../../ui/IconButton';
+import * as ui from '../Modal.styled';
+import Button from '../../ui/Button/Button';
 
 export default function ModalEditAvailability({ id }) {
   const dispatch = useDispatch();

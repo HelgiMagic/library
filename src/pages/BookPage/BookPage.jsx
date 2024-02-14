@@ -53,9 +53,19 @@ export default function BookPage() {
     }));
   };
 
+  const handleOpenStats = () => {
+    dispatch(setActive({
+      modal: constants.MODAL_STATISTICS,
+      elementId: id,
+    }));
+  };
+
   return (
     <ui.Wrapper className="main">
-      <ui.Art src={data.pictureLink} alt="book art" />
+      <ui.ArtColumn>
+        <ui.Art src={data.pictureLink} alt="book art" />
+        <ui.StatsButton onClick={handleOpenStats}>Статистика</ui.StatsButton>
+      </ui.ArtColumn>
       <ui.Column>
         <ui.Group>
           <ui.JustifyRow>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setActive } from '../../slices/modalSlice';
-import { deleteBook } from '../../slices/booksSlice';
-import IconButton from '../ui/IconButton';
-import * as ui from './Modal.styled';
-import Button from '../ui/Button';
+import { setActive } from '../../../slices/modalSlice';
+import { deleteBook } from '../../../slices/booksSlice';
+import IconButton from '../../ui/IconButton';
+import * as ui from '../Modal.styled';
+import Button from '../../ui/Button';
 
 export default function ModalDeleteBook({ id }) {
   const dispatch = useDispatch();

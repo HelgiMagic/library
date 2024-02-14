@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import { setActive } from '../../slices/modalSlice';
-import { createBook } from '../../slices/booksSlice';
-import AddBookButton from '../AddBookButton';
-import IconButton from '../ui/IconButton';
-import * as ui from './Modal.styled';
+import { setActive } from '../../../slices/modalSlice';
+import { createBook } from '../../../slices/booksSlice';
+import AddBookButton from '../../AddBookButton';
+import IconButton from '../../ui/IconButton';
+import * as ui from '../Modal.styled';
 
 export default function ModalAddNewBook() {
   const dispatch = useDispatch();

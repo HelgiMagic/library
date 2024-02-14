@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../../components/ui/Button';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -24,6 +25,17 @@ export const ButtonsColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+`;
+
+export const ArtColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const StatsButton = styled(Button)`
+  background-color: #56b9f6;
+  border: 0;
 `;
 
 export const Art = styled.img`
