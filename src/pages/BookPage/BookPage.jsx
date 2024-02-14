@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { setActive } from '../slices/modalSlice';
-import { fetchOneBook } from '../slices/booksSlice';
-import constants from '../constants';
+import { setActive } from '../../slices/modalSlice';
+import { fetchOneBook } from '../../slices/booksSlice';
+import constants from '../../constants';
+import IconButton from '../../components/ui/IconButton';
+import * as ui from './BookPage.styled';
+import Button from '../../components/ui/Button';
 
 export default function BookPage() {
   const { id } = useParams();
@@ -51,29 +54,29 @@ export default function BookPage() {
   };
 
   return (
-    <div className="main bookpage">
-      <img src={data.pictureLink} alt="book art" className="bookpage-img" />
-      <div className="bookpage-column">
-        <div className="gap-column">
-          <div className="justify-row">
-            <h2>{data.title}</h2>
-            <div>
-              <button type="button" className="svgButton edit-btn" onClick={handleEditBook} id="edit"><img src="/edit.svg" alt="edit" /></button>
-              <button type="button" className="svgButton edit-btn" onClick={handleDeleteBook} id="delete"><img src="/delete.svg" alt="delete" /></button>
-            </div>
-          </div>
+    <ui.Wrapper className="main">
+      <ui.Art src={data.pictureLink} alt="book art" />
+      <ui.Column>
+        <ui.Group>
+          <ui.JustifyRow>
+            <ui.Title>{data.title}</ui.Title>
+            <ui.ButtonsColumn>
+              <IconButton name="edit" size="medium" onClick={handleEditBook} id="edit" />
+              <IconButton name="delete" size="medium" onClick={handleDeleteBook} id="delete" />
+            </ui.ButtonsColumn>
+          </ui.JustifyRow>
           <p>{data.description}</p>
-        </div>
+        </ui.Group>
 
-        <div className="gap-column">
-          <div className="bookpage-row">
-            <div className={statusClass}>{availableText}</div>
-            <button type="button" className="bookpage-btn" onClick={handleChangeAvailability}>Изменить доступность</button>
-          </div>
+        <ui.Group>
+          <ui.StatusRow>
+            <ui.Status className={statusClass}>{availableText}</ui.Status>
+            <Button type="button" className="bookpage-btn" onClick={handleChangeAvailability} size="small">Изменить доступность</Button>
+          </ui.StatusRow>
           <p>{pText}</p>
           <p>{whoFavoritedText}</p>
-        </div>
-      </div>
-    </div>
+        </ui.Group>
+      </ui.Column>
+    </ui.Wrapper>
   );
 }

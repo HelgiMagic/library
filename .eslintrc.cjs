@@ -24,5 +24,6 @@ module.exports = {
   rules: {
     'no-console': 0,
     'react/prop-types': 0,
+    'jsx-a11y/control-has-associated-label': 0,
   },
 };

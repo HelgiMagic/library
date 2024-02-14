@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setActive } from '../../slices/modalSlice';
 import { changeBook } from '../../slices/booksSlice';
+import IconButton from '../ui/IconButton';
+import * as ui from './Modal.styled';
+import Button from '../ui/Button/Button';
 
 export default function ModalEditAvailability({ id }) {
   const dispatch = useDispatch();
@@ -24,21 +27,19 @@ export default function ModalEditAvailability({ id }) {
 
   return (
     <>
-      <div className="overlay" />
-      <div className="modal">
-        <div className="d-flex first-row">
-          <h2>Добавить книгу</h2>
-          <button className="svgButton" type="button" onClick={handleClose}>
-            <img src="/closeModal.svg" alt="close modal button" />
-          </button>
-        </div>
+      <ui.Overlay />
+      <ui.Modal className="modal">
+        <ui.TitleRow>
+          <h2>Изменить доступность</h2>
+          <IconButton name="closeModal" size="big" onClick={handleClose} />
+        </ui.TitleRow>
 
-        <form className="modalForm" onSubmit={handleSubmit}>
-          <input placeholder="У кого книга" className="modal-input" onInput={handleWhoHasInput} value={whoHas} />
+        <ui.Form className="modalForm" onSubmit={handleSubmit}>
+          <ui.Input placeholder="У кого книга" className="modal-input" onInput={handleWhoHasInput} value={whoHas} />
 
-          <button type="submit" className="bookpage-btn">Изменить доступность</button>
-        </form>
-      </div>
+          <Button type="submit" className="bookpage-btn" size="small">Изменить доступность</Button>
+        </ui.Form>
+      </ui.Modal>
     </>
   );
 }

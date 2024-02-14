@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { setActive } from '../../slices/modalSlice';
 import { createBook } from '../../slices/booksSlice';
 import AddBookButton from '../AddBookButton';
+import IconButton from '../ui/IconButton';
+import * as ui from './Modal.styled';
 
 export default function ModalAddNewBook() {
   const dispatch = useDispatch();
@@ -38,25 +40,23 @@ export default function ModalAddNewBook() {
 
   return (
     <>
-      <div className="overlay" />
-      <div className="modal">
-        <div className="d-flex first-row">
+      <ui.Overlay />
+      <ui.Modal>
+        <ui.TitleRow>
           <h2>Добавить книгу</h2>
-          <button className="svgButton" type="button" onClick={handleClose}>
-            <img src="/closeModal.svg" alt="close modal button" />
-          </button>
-        </div>
+          <IconButton name="closeModal" size="big" onClick={handleClose} />
+        </ui.TitleRow>
 
-        <form className="modalForm" onSubmit={handleSubmit}>
-          <input placeholder="Название книги" className="modal-input" onInput={handleTitleInput} value={title} />
+        <ui.Form className="modalForm" onSubmit={handleSubmit}>
+          <ui.Input placeholder="Название книги" className="modal-input" onInput={handleTitleInput} value={title} required />
 
-          <input placeholder="Описание книги" className="modal-input" onInput={handleDescriptionInput} value={description} />
+          <ui.Input placeholder="Описание книги" className="modal-input" onInput={handleDescriptionInput} value={description} />
 
-          <input placeholder="Ссылка на обложку" className="modal-input" onInput={handlePictureInput} value={picLink} />
+          <ui.Input placeholder="Ссылка на обложку" className="modal-input" onInput={handlePictureInput} value={picLink} required />
 
-          <AddBookButton />
-        </form>
-      </div>
+          <AddBookButton type="submit" size="small" />
+        </ui.Form>
+      </ui.Modal>
     </>
   );
 }

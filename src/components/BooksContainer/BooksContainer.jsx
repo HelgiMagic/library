@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Book from './Book';
-import { fetchBooks } from '../slices/booksSlice';
+import Wrapper from './BooksContainer.styled';
+import Book from '../Book';
+import { fetchBooks } from '../../slices/booksSlice';
 
 export default function BooksContainer() {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ export default function BooksContainer() {
   const books = list.map((data) => <Book key={data.id} data={data} />);
 
   return (
-    <div className="books-container">
+    <Wrapper>
       {books}
-    </div>
+    </Wrapper>
   );
 }
