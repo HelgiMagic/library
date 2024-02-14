@@ -43,13 +43,13 @@ export default function ModalEditBook({ id }) {
         </ui.TitleRow>
 
         <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="Название книги" className="modal-input" onInput={handleTitleInput} value={title} />
+          <ui.Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
 
-          <ui.Input placeholder="Описание книги" className="modal-input" onInput={handleDescriptionInput} value={description} />
+          <ui.Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
 
-          <ui.Input placeholder="Ссылка на обложку" className="modal-input" onInput={handlePictureInput} value={pictureLink} />
+          <ui.Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={pictureLink} />
 
-          <ui.Input placeholder="Желающие прочитать" className="modal-input" onInput={handleWhoFavoritedInput} value={whoFavorited} />
+          <ui.Input placeholder="Желающие прочитать" onInput={handleWhoFavoritedInput} value={whoFavorited} />
 
           <Button type="submit" className="bookpage-btn">Изменить книгу</Button>
         </ui.Form>

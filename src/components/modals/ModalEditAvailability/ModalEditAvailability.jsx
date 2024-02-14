@@ -35,7 +35,7 @@ export default function ModalEditAvailability({ id }) {
         </ui.TitleRow>
 
         <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="У кого книга" className="modal-input" onInput={handleWhoHasInput} value={whoHas} />
+          <ui.Input placeholder="У кого книга" onInput={handleWhoHasInput} value={whoHas} />
 
           <Button type="submit" className="bookpage-btn" size="small">Изменить доступность</Button>
         </ui.Form>

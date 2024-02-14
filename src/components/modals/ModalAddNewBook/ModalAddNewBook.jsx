@@ -48,11 +48,11 @@ export default function ModalAddNewBook() {
         </ui.TitleRow>
 
         <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="Название книги" className="modal-input" onInput={handleTitleInput} value={title} required />
+          <ui.Input placeholder="Название книги" onInput={handleTitleInput} value={title} required />
 
-          <ui.Input placeholder="Описание книги" className="modal-input" onInput={handleDescriptionInput} value={description} />
+          <ui.Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
 
-          <ui.Input placeholder="Ссылка на обложку" className="modal-input" onInput={handlePictureInput} value={picLink} required />
+          <ui.Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={picLink} required />
 
           <AddBookButton type="submit" size="small" />
         </ui.Form>

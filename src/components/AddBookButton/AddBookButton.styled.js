@@ -1,4 +1,7 @@
-.add-book {
+import styled from 'styled-components';
+import Button from '../ui/Button';
+
+const GreenButton = styled(Button)`
   width: 500px;
   max-width: 70%;
 
@@ -12,12 +15,10 @@
 
   margin: 0 auto;
   margin-bottom: 50px;
-}
 
-.add-book:hover {
-  background: #899c95;
-}
+  &:hover {
+    background: #899c95;
+  }
+`;
 
-h1 {
-  color: white;
-}
+export default GreenButton;

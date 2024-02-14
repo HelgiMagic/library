@@ -16,10 +16,6 @@
   max-width: none;
 }
 
-.modal-input:focus {
-  border: 1px solid #5e60ce;
-}
-
 .modalForm .add-book {
   width: 100%;
   max-width: none;

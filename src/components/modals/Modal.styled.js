@@ -60,4 +60,8 @@ export const Input = styled.input`
   height: 38px;
 
   padding-left: 16px;
+
+  &:focus {
+    border: 1px solid #5e60ce;
+  }
 `;
