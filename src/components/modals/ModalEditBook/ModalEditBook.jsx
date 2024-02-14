@@ -12,11 +12,13 @@ export default function ModalEditBook({ id }) {
 
   const [title, setTitle] = useState(book.title);
   const [description, setDescription] = useState(book.description);
+  const [genre, setGenre] = useState(book.genre);
   const [pictureLink, setPictureLink] = useState(book.pictureLink);
   const [whoFavorited, setWhoFavorited] = useState(book.whoFavorited.join(', '));
 
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handleDescriptionInput = (e) => setDescription(e.target.value);
+  const handleGenreInput = (e) => setGenre(e.target.value);
   const handlePictureInput = (e) => setPictureLink(e.target.value);
   const handleWhoFavoritedInput = (e) => setWhoFavorited(e.target.value);
 
@@ -45,6 +47,8 @@ export default function ModalEditBook({ id }) {
           <ui.Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
 
           <ui.Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+
+          <ui.Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
 
           <ui.Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={pictureLink} />
 

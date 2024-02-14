@@ -11,6 +11,7 @@ import routes from '../routes';
 //   favorite: false,
 //   whoFavorited: [],
 //   whoHas: 'name of user',
+//   genre: 'Роман' | 'Фэнтези' | 'Детектив' | 'Драма' | 'Проза',
 //   id: 0,
 // };
 

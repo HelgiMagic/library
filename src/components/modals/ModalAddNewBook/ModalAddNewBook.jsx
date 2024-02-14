@@ -10,12 +10,14 @@ export default function ModalAddNewBook() {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
-  const [picLink, setPicLink] = useState('');
   const [description, setDescription] = useState('');
+  const [genre, setGenre] = useState('');
+  const [picLink, setPicLink] = useState('');
 
   const handleTitleInput = (e) => setTitle(e.target.value);
-  const handlePictureInput = (e) => setPicLink(e.target.value);
   const handleDescriptionInput = (e) => setDescription(e.target.value);
+  const handleGenreInput = (e) => setGenre(e.target.value);
+  const handlePictureInput = (e) => setPicLink(e.target.value);
 
   const handleClose = () => {
     dispatch(setActive({ modal: null }));
@@ -28,6 +30,7 @@ export default function ModalAddNewBook() {
     dispatch(createBook({
       title,
       description,
+      genre,
       pictureLink: picLink,
       available: true,
       favorite: false,
@@ -51,6 +54,8 @@ export default function ModalAddNewBook() {
           <ui.Input placeholder="Название книги" onInput={handleTitleInput} value={title} required />
 
           <ui.Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+
+          <ui.Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
 
           <ui.Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={picLink} required />
 
