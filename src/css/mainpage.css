@@ -1,15 +1,9 @@
 .add-book {
   width: 500px;
   max-width: 70%;
-  padding: 16px;
-
-  border: none;
-  border-radius: 8px;
 
   background: #6e807a;
   color: #f2f2f2;
-
-  font-size: 14px;
 
   display: flex;
   justify-content: center;

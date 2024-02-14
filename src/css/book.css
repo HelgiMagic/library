@@ -11,8 +11,6 @@
 
 .book-row button {
   border-radius: var(--book-radius);
-  border: 0;
-
   background-color: var(--gray-200);
 
   width: 50px;
@@ -23,7 +21,6 @@
 }
   
 .book-link {
-  border: 0;
   background-color: #322922;
   color: white;
 

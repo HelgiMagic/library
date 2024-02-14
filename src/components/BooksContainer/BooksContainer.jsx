@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import Book from './Book';
-import { fetchBooks } from '../slices/booksSlice';
-
-const Wrapper = styled.div`
-  display: flex;
-  gap: 50px;
-
-  flex-wrap: wrap;
-`;
+import Wrapper from './BooksContainer.styled';
+import Book from '../Book';
+import { fetchBooks } from '../../slices/booksSlice';
 
 export default function BooksContainer() {
   const dispatch = useDispatch();

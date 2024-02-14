@@ -2,42 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { changeBook } from '../slices/booksSlice';
-import constants from '../constants';
-import Icon from './Icon';
-
-const BookWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  width: 250px;
-  padding: 20px;
-
-  background-color: #262626;
-
-  border-radius: var(--book-radius);
-`;
-
-const Title = styled.h3`
-  padding: 2px 0;
-  color: white;
-
-  font-size: 18px;
-  font-weight: normal;
-
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  min-height: 60px;
-`;
-
-const Art = styled.img`
-  border-radius: var(--book-radius);
-  object-fit: cover;
-  max-height: 315px;
-`;
+import { changeBook } from '../../slices/booksSlice';
+import constants from '../../constants';
+import Icon from '../ui/Icon';
+import * as ui from './Book.styled';
 
 export default function Book({ data }) {
   const dispatch = useDispatch();
@@ -58,14 +26,14 @@ export default function Book({ data }) {
   };
 
   return (
-    <BookWrapper>
-      <Art src={pictureLink} alt="обложка книги" className="book-art" />
-      <Title>{title}</Title>
+    <ui.BookWrapper>
+      <ui.Art src={pictureLink} alt="обложка книги" className="book-art" />
+      <ui.Title>{title}</ui.Title>
       <div className="book-row">
         <div className={statusClass}>{availableText}</div>
         <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><Icon name="favorite" width="20px" /></button>
       </div>
       <Link to={link} className="book-link">Подробнее</Link>
-    </BookWrapper>
+    </ui.BookWrapper>
   );
 }

@@ -1,12 +1,14 @@
 import React from 'react';
-import Icon from './Icon';
+import Icon from './ui/Icon';
+import Button from './ui/Button';
 
-function AddBookButton({ onClick }) {
+function RightIcon() {
+  return <Icon name="plus" size="small" />;
+}
+
+function AddBookButton({ onClick, type = 'button', size = 'big' }) {
   return (
-    <button type="submit" className="add-book" onClick={onClick}>
-      Добавить книгу
-      <Icon name="plus" width="16px" />
-    </button>
+    <Button RightIcon={RightIcon} onClick={onClick} type={type} className="add-book" size={size}>Добавить книгу</Button>
   );
 }
 

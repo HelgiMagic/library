@@ -2,65 +2,11 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { setActive } from '../slices/modalSlice';
-import { fetchOneBook } from '../slices/booksSlice';
-import constants from '../constants';
-import IconButton from '../components/ui/IconButton';
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  color: white;
-
-  text-align: start;
-`;
-
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-
-  justify-content: space-between;
-  padding-top: 10px;
-
-  min-height: 600px;
-`;
-
-const Art = styled.img`
-  height: max-content;
-  width: 300px;
-`;
-
-const Group = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-const JustifyRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 50px;
-`;
-
-const Title = styled.h2`
-  font-weight: normal;
-`;
-
-const StatusRow = styled.div`
-  display: flex;
-  gap: 5px;
-`;
-
-const Status = styled.div`
-  width: 135px;
-
-  text-align: center;
-`;
+import { setActive } from '../../slices/modalSlice';
+import { fetchOneBook } from '../../slices/booksSlice';
+import constants from '../../constants';
+import IconButton from '../../components/ui/IconButton';
+import * as ui from './BookPage.styled';
 
 export default function BookPage() {
   const { id } = useParams();
@@ -107,29 +53,29 @@ export default function BookPage() {
   };
 
   return (
-    <Wrapper className="main">
-      <Art src={data.pictureLink} alt="book art" />
-      <Column>
-        <Group>
-          <JustifyRow>
-            <Title>{data.title}</Title>
-            <div>
-              <IconButton name="edit" width="18px" onClick={handleEditBook} id="edit" />
-              <IconButton name="delete" width="18px" onClick={handleDeleteBook} id="delete" />
-            </div>
-          </JustifyRow>
+    <ui.Wrapper className="main">
+      <ui.Art src={data.pictureLink} alt="book art" />
+      <ui.Column>
+        <ui.Group>
+          <ui.JustifyRow>
+            <ui.Title>{data.title}</ui.Title>
+            <ui.ButtonsColumn>
+              <IconButton name="edit" size="medium" onClick={handleEditBook} id="edit" />
+              <IconButton name="delete" size="medium" onClick={handleDeleteBook} id="delete" />
+            </ui.ButtonsColumn>
+          </ui.JustifyRow>
           <p>{data.description}</p>
-        </Group>
+        </ui.Group>
 
-        <Group>
-          <StatusRow>
-            <Status className={statusClass}>{availableText}</Status>
+        <ui.Group>
+          <ui.StatusRow>
+            <ui.Status className={statusClass}>{availableText}</ui.Status>
             <button type="button" className="bookpage-btn" onClick={handleChangeAvailability}>Изменить доступность</button>
-          </StatusRow>
+          </ui.StatusRow>
           <p>{pText}</p>
           <p>{whoFavoritedText}</p>
-        </Group>
-      </Column>
-    </Wrapper>
+        </ui.Group>
+      </ui.Column>
+    </ui.Wrapper>
   );
 }
