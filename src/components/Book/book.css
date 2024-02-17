@@ -11,13 +11,8 @@
 
 .book-row button {
   border-radius: var(--book-radius);
-  background-color: var(--gray-200);
 
   width: 50px;
-}
-
-.favorite {
-  background-color: #ffdd2d !important;
 }
   
 .book-link {

@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { changeBook } from '../../slices/booksSlice';
 import constants from '../../constants';
-import Icon from '../ui/Icon';
 import * as ui from './Book.styled';
+import IconButton from '../ui/IconButton';
 
 export default function Book({ data }) {
   const dispatch = useDispatch();
@@ -16,8 +16,7 @@ export default function Book({ data }) {
   const statusClass = classNames('book-status', {
     available,
   });
-
-  const favoriteClass = classNames({ favorite });
+  const bg = favorite ? 'var(--yellow)' : 'var(--gray-200)';
   const availableText = available ? 'Доступна' : 'На руках';
   const link = `${constants.LINK_BOOKS}/${id}`;
 
@@ -31,7 +30,7 @@ export default function Book({ data }) {
       <ui.Title>{title}</ui.Title>
       <div className="book-row">
         <div className={statusClass}>{availableText}</div>
-        <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><Icon name="favorite" size="20px" /></button>
+        <IconButton name="favorite" size="big" variant={constants.ICON_WITH_BACKGROUND} bg={bg} onClick={handleFavoriteClick} />
       </div>
       <Link to={link} className="book-link">Подробнее</Link>
     </ui.BookWrapper>

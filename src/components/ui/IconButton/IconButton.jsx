@@ -3,6 +3,12 @@ import Icon from '../Icon';
 import Button from './IconButton.styled';
 import constants from '../../../constants';
 
+const sizesWithBg = {
+  small: '30px',
+  medium: '35px',
+  big: '40px',
+};
+
 const sizes = {
   small: '16px',
   medium: '18px',
@@ -10,14 +16,14 @@ const sizes = {
 };
 
 export default function IconButton({
-  name, size = 'small', onClick, id, variant, background = 'transparent',
+  name, size = 'small', onClick, id, variant, bg = 'transparent',
 }) {
   const finalSize = variant === constants.ICON_WITH_BACKGROUND
-    ? size
+    ? sizesWithBg[size]
     : sizes[size];
 
   return (
-    <Button type="button" onClick={onClick} id={id} size={finalSize} background={background} >
+    <Button type="button" onClick={onClick} id={id} size={finalSize} bg={bg}>
       <Icon name={name} size={sizes[size]} />
     </Button>
   );
