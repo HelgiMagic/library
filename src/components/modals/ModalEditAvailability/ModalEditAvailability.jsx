@@ -5,6 +5,7 @@ import { changeBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
 import * as ui from '../Modal.styled';
 import getNewStats from './getNewStats';
+import Input from '../../ui/Input';
 
 export default function ModalEditAvailability({ id }) {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ export default function ModalEditAvailability({ id }) {
         </ui.TitleRow>
 
         <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="У кого книга" onInput={handleWhoHasInput} value={whoHas} />
+          <Input placeholder="У кого книга" onInput={handleWhoHasInput} value={whoHas} />
 
           <ui.SubmitButton type="submit" size="small">Изменить доступность</ui.SubmitButton>
         </ui.Form>

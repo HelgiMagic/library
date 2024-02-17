@@ -19,4 +19,7 @@ export const SearchInput = styled.input`
   font-weight: 400;
 `;
 
-export const D = 'd';
+export const Form = styled.form`
+  display: flex;
+  gap: 10px;
+`;

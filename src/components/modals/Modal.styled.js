@@ -49,24 +49,6 @@ export const Form = styled.form`
   gap: 10px;
 `;
 
-export const Input = styled.input`
-  border-radius: 8px;
-  border: 1px solid var(--gray-700);
-  background-color: var(--gray-500);
-
-  color: var(--gray-300);
-  font-size: 14px;
-  font-weight: 400;
-
-  height: 38px;
-
-  padding-left: 16px;
-
-  &:focus {
-    border: 1px solid #5e60ce;
-  }
-`;
-
 export const SubmitButton = styled(Button)`
   background-color: var(--purple);
   color: white;

@@ -1,7 +1,7 @@
-#edit:hover img {
-  content: url('/edit-hover.svg');
+#edit:hover svg path {
+  stroke: #3e0ce3;
 }
   
-#delete:hover img {
-  content: url('/delete-hover.svg');
+#delete:hover svg path {
+  stroke: #e25858;
 }

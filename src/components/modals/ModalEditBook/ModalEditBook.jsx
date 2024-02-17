@@ -4,6 +4,7 @@ import { setActive } from '../../../slices/modalSlice';
 import { changeBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
 import * as ui from '../Modal.styled';
+import Input from '../../ui/Input';
 
 export default function ModalEditBook({ id }) {
   const dispatch = useDispatch();
@@ -44,15 +45,15 @@ export default function ModalEditBook({ id }) {
         </ui.TitleRow>
 
         <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
+          <Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
 
-          <ui.Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+          <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
 
-          <ui.Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
+          <Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
 
-          <ui.Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={pictureLink} />
+          <Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={pictureLink} />
 
-          <ui.Input placeholder="Желающие прочитать" onInput={handleWhoFavoritedInput} value={whoFavorited} />
+          <Input placeholder="Желающие прочитать" onInput={handleWhoFavoritedInput} value={whoFavorited} />
 
           <ui.SubmitButton type="submit" size="small">Изменить книгу</ui.SubmitButton>
         </ui.Form>

@@ -31,7 +31,7 @@ export default function Book({ data }) {
       <ui.Title>{title}</ui.Title>
       <div className="book-row">
         <div className={statusClass}>{availableText}</div>
-        <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><Icon name="favorite" width="20px" /></button>
+        <button type="button" onClick={handleFavoriteClick} className={favoriteClass}><Icon name="favorite" size="20px" /></button>
       </div>
       <Link to={link} className="book-link">Подробнее</Link>
     </ui.BookWrapper>

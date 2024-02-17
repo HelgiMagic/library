@@ -5,6 +5,7 @@ import AddBookButton from '../../components/AddBookButton';
 import { setActive } from '../../slices/modalSlice';
 import constants from '../../constants';
 import Search from '../../components/Search';
+import Container from './MainPage.styled';
 
 export default function MainPage() {
   const dispatch = useDispatch();
@@ -15,8 +16,10 @@ export default function MainPage() {
 
   return (
     <div className="main">
-      <Search />
-      <AddBookButton onClick={handleOpenModal} />
+      <Container>
+        <Search />
+        <AddBookButton onClick={handleOpenModal} />
+      </Container>
       <BooksContainer />
     </div>
   );

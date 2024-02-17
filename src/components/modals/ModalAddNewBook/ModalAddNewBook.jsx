@@ -5,6 +5,7 @@ import { createBook } from '../../../slices/booksSlice';
 import AddBookButton from '../../AddBookButton';
 import IconButton from '../../ui/IconButton';
 import * as ui from '../Modal.styled';
+import Input from '../../ui/Input';
 
 export default function ModalAddNewBook() {
   const dispatch = useDispatch();
@@ -51,13 +52,13 @@ export default function ModalAddNewBook() {
         </ui.TitleRow>
 
         <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="Название книги" onInput={handleTitleInput} value={title} required />
+          <Input placeholder="Название книги" onInput={handleTitleInput} value={title} required />
 
-          <ui.Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+          <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
 
-          <ui.Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
+          <Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
 
-          <ui.Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={picLink} required />
+          <Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={picLink} required />
 
           <AddBookButton type="submit" size="small" />
         </ui.Form>

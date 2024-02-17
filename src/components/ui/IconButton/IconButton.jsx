@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from '../Icon';
 import Button from './IconButton.styled';
+import constants from '../../../constants';
 
 const sizes = {
   small: '16px',
@@ -9,11 +10,15 @@ const sizes = {
 };
 
 export default function IconButton({
-  name, size = 'small', onClick, id,
+  name, size = 'small', onClick, id, variant, background = 'transparent',
 }) {
-  const styles = {
-    width: sizes[size], height: sizes[size],
-  };
+  const finalSize = variant === constants.ICON_WITH_BACKGROUND
+    ? size
+    : sizes[size];
 
-  return <Button type="button" onClick={onClick} id={id} style={styles}><Icon name={name} width={sizes[size]} /></Button>;
+  return (
+    <Button type="button" onClick={onClick} id={id} size={finalSize} background={background} >
+      <Icon name={name} size={sizes[size]} />
+    </Button>
+  );
 }
