@@ -16,7 +16,7 @@ export default function Book({ data }) {
   const statusClass = classNames('book-status', {
     available,
   });
-  const bg = favorite ? 'var(--yellow)' : 'var(--gray-200)';
+  const bg = favorite ? 'var(--yellow)' : 'var(--gray-100)';
   const availableText = available ? 'Доступна' : 'На руках';
   const link = `${constants.LINK_BOOKS}/${id}`;
 

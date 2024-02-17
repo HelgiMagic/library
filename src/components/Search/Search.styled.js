@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import IconButton from '../ui/IconButton';
 
 export const SearchInput = styled.input`
   border-radius: 10px;
@@ -22,4 +23,8 @@ export const SearchInput = styled.input`
 export const Form = styled.form`
   display: flex;
   gap: 10px;
+`;
+
+export const SearchIcon = styled(IconButton)`
+  border-radius: 10px;
 `;
