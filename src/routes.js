@@ -1,4 +1,4 @@
-const mainUrl = 'https://65c3724b39055e7482c0e9a0.mockapi.io/books';
+const mainUrl = 'https://65d3741e522627d50108eef3.mockapi.io/book';
 
 const routes = {
   main: () => mainUrl,

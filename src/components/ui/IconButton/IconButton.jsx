@@ -18,15 +18,15 @@ const sizes = {
 };
 
 export default function IconButton({
-  name, size = 'small', onClick, id, variant, bg = 'transparent',
+  name, size = 'small', onClick, id, variant, bg = 'transparent', type = 'button', color, hoverColor,
 }) {
   const finalSize = variant === constants.ICON_WITH_BACKGROUND
     ? sizesWithBg[size]
     : sizes[size];
 
   return (
-    <Button type="button" onClick={onClick} id={id} size={finalSize} bg={bg}>
-      <Icon name={name} size={sizes[size]} />
+    <Button type={type} onClick={onClick} id={id} size={finalSize} bg={bg}>
+      <Icon name={name} size={sizes[size]} color={color} hoverColor={hoverColor} />
     </Button>
   );
 }

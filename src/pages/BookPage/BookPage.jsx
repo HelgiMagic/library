@@ -70,10 +70,15 @@ export default function BookPage() {
           <ui.JustifyRow>
             <ui.Title>{data.title}</ui.Title>
             <ui.ButtonsColumn>
-              <IconButton name="edit" size="medium" onClick={handleEditBook} id="edit" />
-              <IconButton name="delete" size="medium" onClick={handleDeleteBook} id="delete" />
+              <IconButton name="edit" size="medium" onClick={handleEditBook} hoverColor="var(--blue)" />
+              <IconButton name="delete" size="medium" onClick={handleDeleteBook} hoverColor="var(--danger)" />
             </ui.ButtonsColumn>
           </ui.JustifyRow>
+          <p>
+            Автор:
+            {' '}
+            {data.author}
+          </p>
           <p>{data.description}</p>
         </ui.Group>
 

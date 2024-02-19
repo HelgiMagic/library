@@ -13,12 +13,14 @@ export default function ModalEditBook({ id }) {
 
   const [title, setTitle] = useState(book.title);
   const [description, setDescription] = useState(book.description);
+  const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState(book.genre);
   const [pictureLink, setPictureLink] = useState(book.pictureLink);
   const [whoFavorited, setWhoFavorited] = useState(book.whoFavorited.join(', '));
 
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handleDescriptionInput = (e) => setDescription(e.target.value);
+  const handleAuthorInput = (e) => setAuthor(e.target.value);
   const handleGenreInput = (e) => setGenre(e.target.value);
   const handlePictureInput = (e) => setPictureLink(e.target.value);
   const handleWhoFavoritedInput = (e) => setWhoFavorited(e.target.value);
@@ -30,7 +32,7 @@ export default function ModalEditBook({ id }) {
   const handleSubmit = () => {
     const whoFavoritedArray = whoFavorited.split(', ');
     dispatch(changeBook({
-      title, description, pictureLink, whoFavorited: whoFavoritedArray, id,
+      title, description, pictureLink, whoFavorited: whoFavoritedArray, id, author,
     }));
     handleClose();
   };
@@ -48,6 +50,8 @@ export default function ModalEditBook({ id }) {
           <Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
 
           <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+
+          <Input placeholder="Автор книги" onInput={handleAuthorInput} value={author} required />
 
           <Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
 

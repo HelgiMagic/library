@@ -12,10 +12,12 @@ export default function ModalAddNewBook() {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState('');
   const [picLink, setPicLink] = useState('');
 
   const handleTitleInput = (e) => setTitle(e.target.value);
+  const handleAuthorInput = (e) => setAuthor(e.target.value);
   const handleDescriptionInput = (e) => setDescription(e.target.value);
   const handleGenreInput = (e) => setGenre(e.target.value);
   const handlePictureInput = (e) => setPicLink(e.target.value);
@@ -37,6 +39,7 @@ export default function ModalAddNewBook() {
       favorite: false,
       whoFavorited: [],
       whoHas: '',
+      author,
     }));
 
     handleClose();
@@ -55,6 +58,8 @@ export default function ModalAddNewBook() {
           <Input placeholder="Название книги" onInput={handleTitleInput} value={title} required />
 
           <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+
+          <Input placeholder="Автор книги" onInput={handleAuthorInput} value={author} required />
 
           <Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
 

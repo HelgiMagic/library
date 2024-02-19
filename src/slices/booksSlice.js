@@ -12,11 +12,14 @@ import routes from '../routes';
 //   whoFavorited: [],
 //   whoHas: 'name of user',
 //   genre: 'Роман' | 'Фэнтези' | 'Детектив' | 'Драма' | 'Проза',
+//   author: 'Пушкин',
 //   id: 0,
+//   statistics: [],
 // };
 
 const initialState = {
   list: [],
+  shownList: [], // ids: [0, 1, 2, etc...] | null
 };
 
 export const createBook = createAsyncThunk('books/create', async (body) => {
@@ -52,7 +55,11 @@ export const fetchOneBook = createAsyncThunk('books/fetch-one', async (id) => {
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {},
+  reducers: {
+    setShownList(state, action) {
+      state.shownList = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createBook.fulfilled, (state, action) => {
@@ -78,4 +85,5 @@ const booksSlice = createSlice({
   },
 });
 
+export const { setShownList } = booksSlice.actions;
 export default booksSlice.reducer;
