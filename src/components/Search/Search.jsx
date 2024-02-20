@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Wrapper, SettingsIcon } from './Search.styled';
+import Wrapper from './Search.styled';
 import Input from '../ui/Input';
-import constants from '../../constants';
 import { setShownList } from '../../slices/booksSlice';
+import Dropdown from '../Dropdown';
 
 export default function Search() {
   const [value, setValue] = useState('');
@@ -30,13 +30,7 @@ export default function Search() {
   return (
     <Wrapper>
       <Input height="50px" placeholder="Введите название или автора" onInput={handleInput} value={value} />
-      <SettingsIcon
-        variant={constants.ICON_WITH_BACKGROUND}
-        name="settings"
-        size="big_1"
-        bg="var(--gray-500)"
-        color="var(--gray-300)"
-      />
+      <Dropdown />
     </Wrapper>
   );
 }
