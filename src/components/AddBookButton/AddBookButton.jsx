@@ -8,7 +8,17 @@ function RightIcon() {
 
 function AddBookButton({ onClick, type = 'button', size = 'big' }) {
   return (
-    <GreenButton RightIcon={RightIcon} onClick={onClick} type={type} className="add-book" size={size}>Добавить книгу</GreenButton>
+    <GreenButton
+      RightIcon={RightIcon}
+      onClick={onClick}
+      type={type}
+      className="add-book"
+      size={size}
+      color="#6e807a"
+      hoverColor="#899c95"
+    >
+      Добавить книгу
+    </GreenButton>
   );
 }
 

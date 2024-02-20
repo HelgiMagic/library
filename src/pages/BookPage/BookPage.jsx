@@ -7,6 +7,7 @@ import { fetchOneBook } from '../../slices/booksSlice';
 import constants from '../../constants';
 import IconButton from '../../components/ui/IconButton';
 import * as ui from './BookPage.styled';
+import Button from '../../components/ui/Button';
 
 export default function BookPage() {
   const { id } = useParams();
@@ -63,7 +64,7 @@ export default function BookPage() {
     <ui.Wrapper className="main">
       <ui.ArtColumn>
         <ui.Art src={data.pictureLink} alt="book art" />
-        <ui.StatsButton onClick={handleOpenStats}>Статистика</ui.StatsButton>
+        <Button color="#56b9f6" onClick={handleOpenStats}>Статистика</Button>
       </ui.ArtColumn>
       <ui.Column>
         <ui.Group>
@@ -80,7 +81,7 @@ export default function BookPage() {
         <ui.Group>
           <ui.StatusRow>
             <ui.Status className={statusClass}>{availableText}</ui.Status>
-            <ui.ChangeAvailability type="button" onClick={handleChangeAvailability} size="small">Изменить доступность</ui.ChangeAvailability>
+            <ui.ChangeAvailability color="var(--purple)" onClick={handleChangeAvailability} size="small">Изменить доступность</ui.ChangeAvailability>
           </ui.StatusRow>
           <p>{pText}</p>
           <p>{whoFavoritedText}</p>

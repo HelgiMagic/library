@@ -9,14 +9,20 @@ const sizes = {
 };
 
 export default function Button({
-  LeftIcon = () => null, RightIcon = () => null, children, onClick, type = 'button', className, size = 'medium',
+  LeftIcon = () => null, RightIcon = () => null,
+  children, onClick, type = 'button',
+  className, size = 'medium',
+  color, hoverColor,
 }) {
-  const style = {
-    height: sizes[size],
-  };
-
   return (
-    <MyButton type={type} onClick={onClick} className={className} style={style}>
+    <MyButton
+      type={type}
+      onClick={onClick}
+      className={className}
+      size={sizes[size]}
+      color={color}
+      hoverColor={hoverColor}
+    >
       <LeftIcon />
       {children}
       <RightIcon />

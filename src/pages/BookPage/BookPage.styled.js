@@ -33,11 +33,6 @@ export const ArtColumn = styled.div`
   gap: 20px;
 `;
 
-export const StatsButton = styled(Button)`
-  background-color: #56b9f6;
-  border: 0;
-`;
-
 export const Art = styled.img`
   height: max-content;
   width: 300px;
@@ -73,21 +68,8 @@ export const Status = styled.div`
 `;
 
 export const ChangeAvailability = styled(Button)`
-  background-color: var(--purple);
   color: white;
   flex-grow: 1;
 
   max-width: 275px;
 `;
-
-// export const Edit = styled(IconButton)`
-//   &:hover img {
-//     content: url('/edit-hover.svg');
-//   }
-// `;
-
-// export const Delete = styled(IconButton)`
-//   &:hover img {
-//     content: url('/delete-hover.svg');
-//   }
-// `;
