@@ -34,8 +34,8 @@ export default function ModalDeleteBook({ id }) {
 
         <p>Вы уверены?</p>
         <BtnRow>
-          <DangerButton type="button" onClick={handleDelete} size="small">Да, удалить</DangerButton>
-          <SubmitButton type="button" onClick={handleClose} size="small">Нет, вернуться</SubmitButton>
+          <DangerButton type="button" size="small" onClick={handleDelete}>Да, удалить</DangerButton>
+          <SubmitButton type="button" size="small" onClick={handleClose}>Нет, вернуться</SubmitButton>
         </BtnRow>
       </Modal>
     </>

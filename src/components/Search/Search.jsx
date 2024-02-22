@@ -29,7 +29,7 @@ export default function Search() {
 
   return (
     <Wrapper>
-      <Input height="50px" placeholder="Введите название или автора" onInput={handleInput} value={value} />
+      <Input height="50px" placeholder="Введите название или автора" value={value} onInput={handleInput} />
       <SettingsIcon
         variant={constants.ICON_WITH_BACKGROUND}
         name="settings"

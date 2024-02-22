@@ -25,7 +25,7 @@ export default function IconButton({
     : sizes[size];
 
   return (
-    <Button type={type} onClick={onClick} id={id} size={finalSize} bg={bg}>
+    <Button type={type} id={id} size={finalSize} bg={bg} onClick={onClick}>
       <Icon name={name} size={sizes[size]} color={color} hoverColor={hoverColor} />
     </Button>
   );

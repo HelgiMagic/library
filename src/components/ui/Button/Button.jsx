@@ -16,7 +16,7 @@ export default function Button({
   };
 
   return (
-    <MyButton type={type} onClick={onClick} className={className} style={style}>
+    <MyButton type={type} className={className} style={style} onClick={onClick}>
       <LeftIcon />
       {children}
       <RightIcon />

@@ -42,7 +42,7 @@ export default function ModalEditAvailability({ id }) {
         </TitleRow>
 
         <Form className="modalForm" onSubmit={handleSubmit}>
-          <Input placeholder="У кого книга" onInput={handleWhoHasInput} value={whoHas} />
+          <Input placeholder="У кого книга" value={whoHas} onInput={handleWhoHasInput} />
 
           <SubmitButton type="submit" size="small">Изменить доступность</SubmitButton>
         </Form>

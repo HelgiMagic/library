@@ -49,17 +49,17 @@ export default function ModalEditBook({ id }) {
         </TitleRow>
 
         <Form className="modalForm" onSubmit={handleSubmit}>
-          <Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
+          <Input placeholder="Название книги" value={title} onInput={handleTitleInput} />
 
-          <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+          <Input placeholder="Описание книги" value={description} onInput={handleDescriptionInput} />
 
-          <Input placeholder="Автор книги" onInput={handleAuthorInput} value={author} required />
+          <Input required placeholder="Автор книги" value={author} onInput={handleAuthorInput} />
 
-          <Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
+          <Input required placeholder="Жанр книги" value={genre} onInput={handleGenreInput} />
 
-          <Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={pictureLink} />
+          <Input placeholder="Ссылка на обложку" value={pictureLink} onInput={handlePictureInput} />
 
-          <Input placeholder="Желающие прочитать" onInput={handleWhoFavoritedInput} value={whoFavorited} />
+          <Input placeholder="Желающие прочитать" value={whoFavorited} onInput={handleWhoFavoritedInput} />
 
           <SubmitButton type="submit" size="small">Изменить книгу</SubmitButton>
         </Form>
