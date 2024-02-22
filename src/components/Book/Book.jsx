@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { changeBook } from '../../slices/booksSlice';
 import constants from '../../constants';
-import * as ui from './Book.styled';
+import { BookWrapper, Art, Title } from './Book.styled';
 import IconButton from '../ui/IconButton';
 
 export default function Book({ data }) {
@@ -25,14 +25,14 @@ export default function Book({ data }) {
   };
 
   return (
-    <ui.BookWrapper>
-      <ui.Art src={pictureLink} alt="обложка книги" className="book-art" />
-      <ui.Title>{title}</ui.Title>
+    <BookWrapper>
+      <Art src={pictureLink} alt="обложка книги" className="book-art" />
+      <Title>{title}</Title>
       <div className="book-row">
         <div className={statusClass}>{availableText}</div>
         <IconButton name="favorite" size="big" variant={constants.ICON_WITH_BACKGROUND} bg={bg} onClick={handleFavoriteClick} />
       </div>
       <Link to={link} className="book-link">Подробнее</Link>
-    </ui.BookWrapper>
+    </BookWrapper>
   );
 }

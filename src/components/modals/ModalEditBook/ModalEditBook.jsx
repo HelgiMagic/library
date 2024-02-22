@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setActive } from '../../../slices/modalSlice';
 import { changeBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
-import * as ui from '../Modal.styled';
+import {
+  Overlay, Modal, Form, TitleRow, SubmitButton,
+} from '../Modal.styled';
 import Input from '../../ui/Input';
 
 export default function ModalEditBook({ id }) {
@@ -39,14 +41,14 @@ export default function ModalEditBook({ id }) {
 
   return (
     <>
-      <ui.Overlay />
-      <ui.Modal className="modal">
-        <ui.TitleRow>
+      <Overlay />
+      <Modal className="modal">
+        <TitleRow>
           <h2>Изменить книгу</h2>
           <IconButton name="closeModal" size="big" onClick={handleClose} />
-        </ui.TitleRow>
+        </TitleRow>
 
-        <ui.Form className="modalForm" onSubmit={handleSubmit}>
+        <Form className="modalForm" onSubmit={handleSubmit}>
           <Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
 
           <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
@@ -59,9 +61,9 @@ export default function ModalEditBook({ id }) {
 
           <Input placeholder="Желающие прочитать" onInput={handleWhoFavoritedInput} value={whoFavorited} />
 
-          <ui.SubmitButton type="submit" size="small">Изменить книгу</ui.SubmitButton>
-        </ui.Form>
-      </ui.Modal>
+          <SubmitButton type="submit" size="small">Изменить книгу</SubmitButton>
+        </Form>
+      </Modal>
     </>
   );
 }
