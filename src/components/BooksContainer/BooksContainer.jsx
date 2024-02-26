@@ -12,9 +12,10 @@ export default function BooksContainer() {
     dispatch(fetchBooks());
   }, []);
 
+  console.log(shownList);
   let actualList;
-  if (shownList === null) actualList = [];
-  else if (shownList.length === 0) actualList = list;
+  if (shownList === 'none') actualList = [];
+  else if (shownList === 'all') actualList = list;
   else actualList = list.filter(({ id }) => shownList.includes(id));
 
   const books = actualList.map((data) => <Book key={data.id} data={data} />);

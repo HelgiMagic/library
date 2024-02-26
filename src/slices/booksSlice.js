@@ -19,7 +19,7 @@ import routes from '../routes';
 
 const initialState = {
   list: [],
-  shownList: [], // ids: [0, 1, 2, etc...] | null
+  shownList: 'all', // ids: [0, 1, 2, etc...] | null
 };
 
 export const createBook = createAsyncThunk('books/create', async (body) => {
@@ -59,6 +59,22 @@ const booksSlice = createSlice({
     setShownList(state, action) {
       state.shownList = action.payload;
     },
+    filterByTitleAndAuthor(state, action) {
+      const value = action.payload;
+
+      if (value.length < 1) {
+        state.shownList = 'all';
+        return;
+      }
+
+      const shownBooks = state.list.filter(({ title, author }) => (
+        title.toLowerCase().includes(value.toLowerCase())
+      || author.toLowerCase().includes(value.toLowerCase())
+      ));
+
+      const result = shownBooks.length === 0 ? 'none' : shownBooks.map((book) => book.id);
+      state.shownList = result;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -85,5 +101,5 @@ const booksSlice = createSlice({
   },
 });
 
-export const { setShownList } = booksSlice.actions;
+export const { setShownList, filterByTitleAndAuthor } = booksSlice.actions;
 export default booksSlice.reducer;
