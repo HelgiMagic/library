@@ -5,14 +5,21 @@ import Input from '../ui/Input';
 import constants from '../../constants';
 import { filterByTitleAndAuthor } from '../../slices/booksSlice';
 
+let timeoutId = null; // To store the timeout ID
+
 export default function Search() {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
 
   const handleInput = (e) => {
-    setValue(e.target.value);
+    const inputValue = e.target.value;
+    setValue(inputValue);
 
-    dispatch(filterByTitleAndAuthor(e.target.value));
+    if (timeoutId) clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+      dispatch(filterByTitleAndAuthor(inputValue));
+    }, 300);
   };
 
   return (
