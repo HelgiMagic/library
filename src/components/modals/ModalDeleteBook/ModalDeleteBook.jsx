@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { setActive } from '../../../slices/modalSlice';
 import { deleteBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
-import * as ui from '../Modal.styled';
+import {
+  Overlay, Modal, TitleRow, SubmitButton,
+} from '../Modal.styled';
 import { BtnRow, DangerButton } from './ModalDeleteBook.styled';
 
 export default function ModalDeleteBook({ id }) {
@@ -23,19 +25,19 @@ export default function ModalDeleteBook({ id }) {
 
   return (
     <>
-      <ui.Overlay />
-      <ui.Modal className="modal">
-        <ui.TitleRow>
+      <Overlay />
+      <Modal className="modal">
+        <TitleRow>
           <h2>Удалить книгу</h2>
           <IconButton name="closeModal" size="big" onClick={handleClose} />
-        </ui.TitleRow>
+        </TitleRow>
 
         <p>Вы уверены?</p>
         <BtnRow>
-          <DangerButton type="button" onClick={handleDelete} size="small">Да, удалить</DangerButton>
-          <ui.SubmitButton type="button" onClick={handleClose} size="small">Нет, вернуться</ui.SubmitButton>
+          <DangerButton type="button" size="small" onClick={handleDelete}>Да, удалить</DangerButton>
+          <SubmitButton type="button" size="small" onClick={handleClose}>Нет, вернуться</SubmitButton>
         </BtnRow>
-      </ui.Modal>
+      </Modal>
     </>
   );
 }

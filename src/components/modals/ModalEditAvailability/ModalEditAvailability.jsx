@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setActive } from '../../../slices/modalSlice';
 import { changeBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
-import * as ui from '../Modal.styled';
+import {
+  Overlay, Modal, Form, TitleRow, SubmitButton,
+} from '../Modal.styled';
+import getNewStats from './getNewStats';
+import Input from '../../ui/Input';
 
 export default function ModalEditAvailability({ id }) {
   const dispatch = useDispatch();
@@ -16,29 +20,33 @@ export default function ModalEditAvailability({ id }) {
 
     setWhoHas('');
   };
+  const book = useSelector((state) => state.books.list).find((elem) => elem.id === id);
 
   const handleSubmit = () => {
+    const statistics = getNewStats(book, whoHas);
     const available = whoHas === '';
 
-    dispatch(changeBook({ whoHas, available, id }));
+    dispatch(changeBook({
+      whoHas, available, id, statistics,
+    }));
     handleClose();
   };
 
   return (
     <>
-      <ui.Overlay />
-      <ui.Modal className="modal">
-        <ui.TitleRow>
+      <Overlay />
+      <Modal className="modal">
+        <TitleRow>
           <h2>Изменить доступность</h2>
           <IconButton name="closeModal" size="big" onClick={handleClose} />
-        </ui.TitleRow>
+        </TitleRow>
 
-        <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="У кого книга" onInput={handleWhoHasInput} value={whoHas} />
+        <Form className="modalForm" onSubmit={handleSubmit}>
+          <Input placeholder="У кого книга" value={whoHas} onInput={handleWhoHasInput} />
 
-          <ui.SubmitButton type="submit" size="small">Изменить доступность</ui.SubmitButton>
-        </ui.Form>
-      </ui.Modal>
+          <SubmitButton type="submit" size="small">Изменить доступность</SubmitButton>
+        </Form>
+      </Modal>
     </>
   );
 }

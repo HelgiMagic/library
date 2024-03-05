@@ -3,12 +3,12 @@ import Icon from '../ui/Icon';
 import GreenButton from './AddBookButton.styled';
 
 function RightIcon() {
-  return <Icon name="plus" size="small" />;
+  return <Icon name="plus" size="16px" />;
 }
 
 function AddBookButton({ onClick, type = 'button', size = 'big' }) {
   return (
-    <GreenButton RightIcon={RightIcon} onClick={onClick} type={type} className="add-book" size={size}>Добавить книгу</GreenButton>
+    <GreenButton RightIcon={RightIcon} type={type} className="add-book" size={size} onClick={onClick}>Добавить книгу</GreenButton>
   );
 }
 

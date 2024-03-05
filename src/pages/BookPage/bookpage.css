@@ -1,7 +1,0 @@
-#edit:hover img {
-  content: url('/edit-hover.svg');
-}
-  
-#delete:hover img {
-  content: url('/delete-hover.svg');
-}

@@ -4,18 +4,25 @@ import { setActive } from '../../../slices/modalSlice';
 import { createBook } from '../../../slices/booksSlice';
 import AddBookButton from '../../AddBookButton';
 import IconButton from '../../ui/IconButton';
-import * as ui from '../Modal.styled';
+import {
+  Overlay, Modal, Form, TitleRow,
+} from '../Modal.styled';
+import Input from '../../ui/Input';
 
 export default function ModalAddNewBook() {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
-  const [picLink, setPicLink] = useState('');
   const [description, setDescription] = useState('');
+  const [author, setAuthor] = useState('');
+  const [genre, setGenre] = useState('');
+  const [picLink, setPicLink] = useState('');
 
   const handleTitleInput = (e) => setTitle(e.target.value);
-  const handlePictureInput = (e) => setPicLink(e.target.value);
+  const handleAuthorInput = (e) => setAuthor(e.target.value);
   const handleDescriptionInput = (e) => setDescription(e.target.value);
+  const handleGenreInput = (e) => setGenre(e.target.value);
+  const handlePictureInput = (e) => setPicLink(e.target.value);
 
   const handleClose = () => {
     dispatch(setActive({ modal: null }));
@@ -28,11 +35,13 @@ export default function ModalAddNewBook() {
     dispatch(createBook({
       title,
       description,
+      genre,
       pictureLink: picLink,
       available: true,
       favorite: false,
-      whoFavorited: ['Alan', 'Jason', 'Кирилл', 'Борис'],
+      whoFavorited: [],
       whoHas: '',
+      author,
     }));
 
     handleClose();
@@ -40,23 +49,27 @@ export default function ModalAddNewBook() {
 
   return (
     <>
-      <ui.Overlay />
-      <ui.Modal>
-        <ui.TitleRow>
+      <Overlay />
+      <Modal>
+        <TitleRow>
           <h2>Добавить книгу</h2>
           <IconButton name="closeModal" size="big" onClick={handleClose} />
-        </ui.TitleRow>
+        </TitleRow>
 
-        <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <ui.Input placeholder="Название книги" onInput={handleTitleInput} value={title} required />
+        <Form className="modalForm" onSubmit={handleSubmit}>
+          <Input required placeholder="Название книги" value={title} onInput={handleTitleInput} />
 
-          <ui.Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+          <Input placeholder="Описание книги" value={description} onInput={handleDescriptionInput} />
 
-          <ui.Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={picLink} required />
+          <Input required placeholder="Автор книги" value={author} onInput={handleAuthorInput} />
+
+          <Input required placeholder="Жанр книги" value={genre} onInput={handleGenreInput} />
+
+          <Input required placeholder="Ссылка на обложку" value={picLink} onInput={handlePictureInput} />
 
           <AddBookButton type="submit" size="small" />
-        </ui.Form>
-      </ui.Modal>
+        </Form>
+      </Modal>
     </>
   );
 }

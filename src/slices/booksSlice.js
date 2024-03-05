@@ -11,11 +11,18 @@ import routes from '../routes';
 //   favorite: false,
 //   whoFavorited: [],
 //   whoHas: 'name of user',
+//   genre: 'Роман' | 'Фэнтези' | 'Детектив' | 'Драма' | 'Проза',
+//   author: 'Пушкин',
 //   id: 0,
+//   statistics: [],
 // };
 
 const initialState = {
   list: [],
+  filterObject: {
+    titleAndAuthor: '',
+    genre: '',
+  },
 };
 
 export const createBook = createAsyncThunk('books/create', async (body) => {
@@ -51,7 +58,15 @@ export const fetchOneBook = createAsyncThunk('books/fetch-one', async (id) => {
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {},
+  reducers: {
+    changeFilterObject(state, action) {
+      console.log(action.payload);
+      const { titleAndAuthor, genre } = action.payload;
+
+      if (titleAndAuthor) state.filterObject.titleAndAuthor = titleAndAuthor;
+      if (genre) state.filterObject.genre = genre;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createBook.fulfilled, (state, action) => {
@@ -77,4 +92,5 @@ const booksSlice = createSlice({
   },
 });
 
+export const { changeFilterObject } = booksSlice.actions;
 export default booksSlice.reducer;

@@ -6,7 +6,10 @@ import { setActive } from '../../slices/modalSlice';
 import { fetchOneBook } from '../../slices/booksSlice';
 import constants from '../../constants';
 import IconButton from '../../components/ui/IconButton';
-import * as ui from './BookPage.styled';
+import {
+  Wrapper, ArtColumn, Art, StatsButton, Column, Group, JustifyRow,
+  Title, ButtonsColumn, StatusRow, Status, ChangeAvailability,
+} from './BookPage.styled';
 
 export default function BookPage() {
   const { id } = useParams();
@@ -60,32 +63,37 @@ export default function BookPage() {
   };
 
   return (
-    <ui.Wrapper className="main">
-      <ui.ArtColumn>
-        <ui.Art src={data.pictureLink} alt="book art" />
-        <ui.StatsButton onClick={handleOpenStats}>Статистика</ui.StatsButton>
-      </ui.ArtColumn>
-      <ui.Column>
-        <ui.Group>
-          <ui.JustifyRow>
-            <ui.Title>{data.title}</ui.Title>
-            <ui.ButtonsColumn>
-              <IconButton name="edit" size="medium" onClick={handleEditBook} id="edit" />
-              <IconButton name="delete" size="medium" onClick={handleDeleteBook} id="delete" />
-            </ui.ButtonsColumn>
-          </ui.JustifyRow>
+    <Wrapper className="main">
+      <ArtColumn>
+        <Art src={data.pictureLink} alt="book art" />
+        <StatsButton onClick={handleOpenStats}>Статистика</StatsButton>
+      </ArtColumn>
+      <Column>
+        <Group>
+          <JustifyRow>
+            <Title>{data.title}</Title>
+            <ButtonsColumn>
+              <IconButton name="edit" size="medium" hoverColor="var(--blue)" onClick={handleEditBook} />
+              <IconButton name="delete" size="medium" hoverColor="var(--danger)" onClick={handleDeleteBook} />
+            </ButtonsColumn>
+          </JustifyRow>
+          <p>
+            Автор:
+            {' '}
+            {data.author}
+          </p>
           <p>{data.description}</p>
-        </ui.Group>
+        </Group>
 
-        <ui.Group>
-          <ui.StatusRow>
-            <ui.Status className={statusClass}>{availableText}</ui.Status>
-            <ui.ChangeAvailability type="button" onClick={handleChangeAvailability} size="small">Изменить доступность</ui.ChangeAvailability>
-          </ui.StatusRow>
+        <Group>
+          <StatusRow>
+            <Status className={statusClass}>{availableText}</Status>
+            <ChangeAvailability type="button" size="small" onClick={handleChangeAvailability}>Изменить доступность</ChangeAvailability>
+          </StatusRow>
           <p>{pText}</p>
           <p>{whoFavoritedText}</p>
-        </ui.Group>
-      </ui.Column>
-    </ui.Wrapper>
+        </Group>
+      </Column>
+    </Wrapper>
   );
 }

@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import Wrapper from './BooksContainer.styled';
 import Book from '../Book';
 import { fetchBooks } from '../../slices/booksSlice';
+import filterBooks from '../../functions/filterBooks';
 
 export default function BooksContainer() {
   const dispatch = useDispatch();
-  const { list } = useSelector((state) => state.books);
+  const { list, filterObject } = useSelector((state) => state.books);
 
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
 
-  const books = list.map((data) => <Book key={data.id} data={data} />);
+  const actualList = filterBooks(list, filterObject);
+  const books = actualList.map((data) => <Book key={data.id} data={data} />);
 
   return (
     <Wrapper>
