@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import IconButton from '../ui/IconButton';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   gap: 10px;
 `;
 
-export default Wrapper;
+export const SettingsIcon = styled(IconButton)`
+  border-radius: 10px;
+`;

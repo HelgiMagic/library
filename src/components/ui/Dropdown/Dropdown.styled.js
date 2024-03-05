@@ -1,9 +1,4 @@
 import styled from 'styled-components';
-import IconButton from '../ui/IconButton';
-
-export const SettingsIcon = styled(IconButton)`
-  border-radius: 10px;
-`;
 
 export const DropDown = styled.div`
   color: white;
