@@ -2,7 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import History from './History';
 import { setActive } from '../../../slices/modalSlice';
-import * as ui from '../Modal.styled';
+import {
+  Overlay, Modal, TitleRow,
+} from '../Modal.styled';
 import IconButton from '../../ui/IconButton';
 
 export default function ModalStatistics({ id }) {
@@ -15,15 +17,15 @@ export default function ModalStatistics({ id }) {
 
   return (
     <>
-      <ui.Overlay />
-      <ui.Modal>
-        <ui.TitleRow>
+      <Overlay />
+      <Modal>
+        <TitleRow>
           <h2>Изменить книгу</h2>
           <IconButton name="closeModal" size="big" onClick={handleClose} />
-        </ui.TitleRow>
+        </TitleRow>
 
         {statistics.map((stat) => <History data={stat} />)}
-      </ui.Modal>
+      </Modal>
     </>
   );
 }

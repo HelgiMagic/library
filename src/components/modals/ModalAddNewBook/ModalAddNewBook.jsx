@@ -4,7 +4,9 @@ import { setActive } from '../../../slices/modalSlice';
 import { createBook } from '../../../slices/booksSlice';
 import AddBookButton from '../../AddBookButton';
 import IconButton from '../../ui/IconButton';
-import * as ui from '../Modal.styled';
+import {
+  Overlay, Modal, Form, TitleRow,
+} from '../Modal.styled';
 import Input from '../../ui/Input';
 
 export default function ModalAddNewBook() {
@@ -47,27 +49,27 @@ export default function ModalAddNewBook() {
 
   return (
     <>
-      <ui.Overlay />
-      <ui.Modal>
-        <ui.TitleRow>
+      <Overlay />
+      <Modal>
+        <TitleRow>
           <h2>Добавить книгу</h2>
           <IconButton name="closeModal" size="big" onClick={handleClose} />
-        </ui.TitleRow>
+        </TitleRow>
 
-        <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <Input placeholder="Название книги" onInput={handleTitleInput} value={title} required />
+        <Form className="modalForm" onSubmit={handleSubmit}>
+          <Input required placeholder="Название книги" value={title} onInput={handleTitleInput} />
 
-          <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+          <Input placeholder="Описание книги" value={description} onInput={handleDescriptionInput} />
 
-          <Input placeholder="Автор книги" onInput={handleAuthorInput} value={author} required />
+          <Input required placeholder="Автор книги" value={author} onInput={handleAuthorInput} />
 
-          <Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
+          <Input required placeholder="Жанр книги" value={genre} onInput={handleGenreInput} />
 
-          <Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={picLink} required />
+          <Input required placeholder="Ссылка на обложку" value={picLink} onInput={handlePictureInput} />
 
           <AddBookButton type="submit" size="small" />
-        </ui.Form>
-      </ui.Modal>
+        </Form>
+      </Modal>
     </>
   );
 }

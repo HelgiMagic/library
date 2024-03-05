@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setActive } from '../../../slices/modalSlice';
 import { changeBook } from '../../../slices/booksSlice';
 import IconButton from '../../ui/IconButton';
-import * as ui from '../Modal.styled';
+import {
+  Overlay, Modal, Form, TitleRow, SubmitButton,
+} from '../Modal.styled';
 import Input from '../../ui/Input';
 
 export default function ModalEditBook({ id }) {
@@ -39,29 +41,29 @@ export default function ModalEditBook({ id }) {
 
   return (
     <>
-      <ui.Overlay />
-      <ui.Modal className="modal">
-        <ui.TitleRow>
+      <Overlay />
+      <Modal className="modal">
+        <TitleRow>
           <h2>Изменить книгу</h2>
           <IconButton name="closeModal" size="big" onClick={handleClose} />
-        </ui.TitleRow>
+        </TitleRow>
 
-        <ui.Form className="modalForm" onSubmit={handleSubmit}>
-          <Input placeholder="Название книги" onInput={handleTitleInput} value={title} />
+        <Form className="modalForm" onSubmit={handleSubmit}>
+          <Input placeholder="Название книги" value={title} onInput={handleTitleInput} />
 
-          <Input placeholder="Описание книги" onInput={handleDescriptionInput} value={description} />
+          <Input placeholder="Описание книги" value={description} onInput={handleDescriptionInput} />
 
-          <Input placeholder="Автор книги" onInput={handleAuthorInput} value={author} required />
+          <Input required placeholder="Автор книги" value={author} onInput={handleAuthorInput} />
 
-          <Input placeholder="Жанр книги" onInput={handleGenreInput} value={genre} required />
+          <Input required placeholder="Жанр книги" value={genre} onInput={handleGenreInput} />
 
-          <Input placeholder="Ссылка на обложку" onInput={handlePictureInput} value={pictureLink} />
+          <Input placeholder="Ссылка на обложку" value={pictureLink} onInput={handlePictureInput} />
 
-          <Input placeholder="Желающие прочитать" onInput={handleWhoFavoritedInput} value={whoFavorited} />
+          <Input placeholder="Желающие прочитать" value={whoFavorited} onInput={handleWhoFavoritedInput} />
 
-          <ui.SubmitButton type="submit" size="small">Изменить книгу</ui.SubmitButton>
-        </ui.Form>
-      </ui.Modal>
+          <SubmitButton type="submit" size="small">Изменить книгу</SubmitButton>
+        </Form>
+      </Modal>
     </>
   );
 }

@@ -19,7 +19,10 @@ import routes from '../routes';
 
 const initialState = {
   list: [],
-  shownList: [], // ids: [0, 1, 2, etc...] | null
+  filterObject: {
+    titleAndAuthor: '',
+    genre: '',
+  },
 };
 
 export const createBook = createAsyncThunk('books/create', async (body) => {
@@ -56,8 +59,12 @@ const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    setShownList(state, action) {
-      state.shownList = action.payload;
+    changeFilterObject(state, action) {
+      console.log(action.payload);
+      const { titleAndAuthor, genre } = action.payload;
+
+      if (titleAndAuthor) state.filterObject.titleAndAuthor = titleAndAuthor;
+      if (genre) state.filterObject.genre = genre;
     },
   },
   extraReducers: (builder) => {
@@ -85,5 +92,5 @@ const booksSlice = createSlice({
   },
 });
 
-export const { setShownList } = booksSlice.actions;
+export const { changeFilterObject } = booksSlice.actions;
 export default booksSlice.reducer;

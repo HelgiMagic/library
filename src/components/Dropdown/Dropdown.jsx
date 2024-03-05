@@ -1,30 +1,21 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   DropDown, SettingsIcon, List, Li,
 } from './Dropdown.styled';
 import constants from '../../constants';
-import { setShownList } from '../../slices/booksSlice';
+import { changeFilterObject } from '../../slices/booksSlice';
 
 export default function Dropdown() {
   const [active, setActive] = useState('Все жанры');
   const [isOpen, setIsOpen] = useState(false);
-  const { list } = useSelector((state) => state.books);
 
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
     setActive(e.target.textContent);
 
-    if (e.target.textContent === 'Все жанры') {
-      dispatch(setShownList([]));
-      return;
-    }
-
-    const newList = list.filter((book) => book.genre === e.target.textContent);
-    const result = newList.length > 0 ? newList.map((book) => book.id) : null;
-
-    dispatch(setShownList(result));
+    dispatch(changeFilterObject({ genre: e.target.textContent }));
   };
 
   const handleChangeOpen = () => setIsOpen(!isOpen);
