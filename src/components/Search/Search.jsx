@@ -5,7 +5,7 @@ import Input from '../ui/Input';
 import { changeFilterObject } from '../../slices/booksSlice';
 import Dropdown from '../Dropdown';
 
-let timeoutId = null; // To store the timeout ID
+let timeoutId = null;
 
 export default function Search() {
   const [value, setValue] = useState('');

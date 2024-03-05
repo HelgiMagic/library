@@ -21,7 +21,7 @@ const initialState = {
   list: [],
   filterObject: {
     titleAndAuthor: '',
-    genre: '',
+    genre: 'Все жанры',
   },
 };
 
