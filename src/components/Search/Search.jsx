@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Wrapper, SettingsIcon } from './Search.styled';
 import Input from '../ui/Input';
 import constants from '../../constants';
-import { filterByTitleAndAuthor } from '../../slices/booksSlice';
+import { changeFilterObject } from '../../slices/booksSlice';
 
 let timeoutId = null; // To store the timeout ID
 
@@ -18,7 +18,7 @@ export default function Search() {
     if (timeoutId) clearTimeout(timeoutId);
 
     timeoutId = setTimeout(() => {
-      dispatch(filterByTitleAndAuthor(inputValue));
+      dispatch(changeFilterObject({ titleAndAuthor: inputValue }));
     }, 300);
   };
 

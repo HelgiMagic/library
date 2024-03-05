@@ -7,6 +7,10 @@ const Button = styled.button`
 
   width: ${(props) => props.size};
   height: ${(props) => props.size};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Button;
