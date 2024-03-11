@@ -9,5 +9,9 @@ export default function filterBooks(books, filterObject) {
     ));
   }
 
+  if (genre !== 'Все жанры') {
+    filterConditions.push((book) => book.genre === genre);
+  }
+
   return books.filter((book) => filterConditions.every((condition) => condition(book)));
 }
